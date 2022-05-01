@@ -12,8 +12,9 @@
     "reload": "yarn install --force",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "build": "turbo run build",
-    "deploy": "turbo run deploy"
+    "build": "turbo run build --force",
+    "deploy": "turbo run deploy",
+    "clean": "turbo run clean --force"
   },
   "devDependencies": {
     "husky": "^7.0.4",

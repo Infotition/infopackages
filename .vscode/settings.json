@@ -15,14 +15,16 @@
     "**/package-lock.json": true,
     "**/.husky/_": true,
     ".editorconfig": true,
-    ".vscode": true,
     ".husky": true,
-    ".gitignore": true
+    "utils/classnames/tsconfig.json": true,
+    ".gitignore": true,
+    ".vscode": true
   },
   "hide-files.files": [
     ".editorconfig",
-    ".vscode",
     ".husky",
-    ".gitignore"
+    "utils/classnames/tsconfig.json",
+    ".gitignore",
+    ".vscode"
   ]
 }
