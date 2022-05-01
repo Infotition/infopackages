@@ -1,0 +1,27 @@
+{
+  "name": "infopackages",
+  "description": "A collection of infotition node modules consisting of components and utilities.",
+  "author": "Infotition",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "components/*",
+    "utils/*"
+  ],
+  "scripts": {
+    "reload": "yarn install --force",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "build": "turbo run build",
+    "deploy": "turbo run deploy"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "turbo": "latest"
+  },
+  "packageManager": "yarn@1.22.17",
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  }
+}

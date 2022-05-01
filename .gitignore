@@ -1,0 +1,10 @@
+# dependencies
+**/node_modules
+
+# generated output
+**/.turbo/
+**/build/
+**/dist/
+**/lib/
+**/package/
+**/.husky/_

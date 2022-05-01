@@ -1,0 +1,28 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true,
+    "**/node_modules": true,
+    "**/yarn.lock": true,
+    "**/package-lock.json": true,
+    "**/.husky/_": true,
+    ".editorconfig": true,
+    ".vscode": true,
+    ".husky": true,
+    ".gitignore": true
+  },
+  "hide-files.files": [
+    ".editorconfig",
+    ".vscode",
+    ".husky",
+    ".gitignore"
+  ]
+}
