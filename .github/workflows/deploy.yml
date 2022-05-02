@@ -1,0 +1,32 @@
+name: deploy
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    name: Deploy packages to npm
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: bahmutov/npm-install@v1
+
+      - name: Deploy packages
+        run: yarn deploy
