@@ -3,15 +3,23 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "deploy": {
-      "dependsOn": ["build", "lint"],
-      "outputs": ["package"]
+      "dependsOn": ["build", "lint", "test"],
+      "outputs": ["package/**"],
+      "inputs": ["src/**/*.(ts|tsx)"]
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": []
+      "outputs": ["lib/**"],
+      "inputs": ["src/**/*.(ts|tsx)"]
     },
-    "test": { "outputs": [] },
-    "lint": { "outputs": [] },
+    "test": {
+      "outputs": [],
+      "inputs": ["**/*.test.(ts|tsx)", "src/**/*.(ts|tsx)"]
+    },
+    "lint": {
+      "outputs": [],
+      "inputs": ["src/**/*.(ts|tsx)"]
+    },
     "clean": { "outputs": [] }
   }
 }

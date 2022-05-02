@@ -7,12 +7,13 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
+  "repository": "https://github.com/Infotition/classnames.git",
   "scripts": {
     "dev": "tsi watch",
-    "test": "tsi test",
-    "build": "tsi build",
+    "test": "tsi test --tsi ../..",
     "lint": "tsi lint",
-    "deploy": "tsi publish --dry&&npx cpx ../../LICENSE ./package/",
+    "build": "tsi build",
+    "deploy": "tsi publish --dry --license ../../LICENSE",
     "clean": "tsi clean"
   },
   "devDependencies": {
