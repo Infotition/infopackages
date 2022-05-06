@@ -8,8 +8,8 @@
 	<h1>Express error handler</h1>
 	<p>An utility package for express error handling.</p>
   	<p>
-    <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yml" title="build state">
-			<img alt="build state" src="https://github.com/Infotition/infopackages/actions/workflows/ci.yml/badge.svg">
+    <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml" title="build state">
+			<img alt="build state" src="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml/badge.svg">
 		</a>
 		<a href="https://github.com/Infotition/infopackages/blob/main/LICENSE" title="license">
 			<img src="https://img.shields.io/github/license/Infotition/infopackages" alt="license" />

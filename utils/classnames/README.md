@@ -8,8 +8,8 @@
 	<h1>Infotition's class names utilities</h1>
 	<p>Utility function for conditionally joining class names together.</p>
   	<p>
-    <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yml" title="build state">
-			<img alt="build state" src="https://github.com/Infotition/infopackages/actions/workflows/ci.yml/badge.svg">
+    <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml" title="build state">
+			<img alt="build state" src="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml/badge.svg">
 		</a>
 		<a href="https://www.npmjs.com/package/@infotition/infopackages" title="min zipped size">
 			<img alt="package size" src="https://badgen.net/bundlephobia/minzip/@infotition/infopackages">
