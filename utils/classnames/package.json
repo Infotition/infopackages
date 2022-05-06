@@ -12,13 +12,13 @@
     "dev": "tsi watch",
     "test": "tsi test --tsi ../..",
     "lint": "tsi lint",
-    "build": "tsi build",
+    "build": "tsi build --types",
     "deploy": "tsi publish --license ../../LICENSE",
     "clean": "tsi clean",
     "version": "echo %npm_package_version%"
   },
   "devDependencies": {
-    "@infotition/tsi": "^2.5.0",
+    "@infotition/tsi": "^2.6.0",
     "@infotition/eslint-config": "^2.2.0",
     "@infotition/prettier-config": "^1.0.0",
     "@types/jest": "^27.4.1",

@@ -5,14 +5,11 @@
 			<img src="https://raw.githubusercontent.com/Infotition/infopackages/main/.github/assets/infotition_logo.png" width=600px alt="infotition logo" />
 		</a>
 	</p>
-	<h1>Infotition's class names utilities</h1>
-	<p>Utility function for conditionally joining class names together.</p>
+	<h1>Express error handler</h1>
+	<p>An utility package for express error handling.</p>
   	<p>
     <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yml" title="build state">
 			<img alt="build state" src="https://github.com/Infotition/infopackages/actions/workflows/ci.yml/badge.svg">
-		</a>
-		<a href="https://www.npmjs.com/package/@infotition/infopackages" title="min zipped size">
-			<img alt="package size" src="https://badgen.net/bundlephobia/minzip/@infotition/infopackages">
 		</a>
 		<a href="https://github.com/Infotition/infopackages/blob/main/LICENSE" title="license">
 			<img src="https://img.shields.io/github/license/Infotition/infopackages" alt="license" />
@@ -25,22 +22,51 @@
 With npm:
 
 ```bash
-npm install @infotition/classnames
+npm install @infotition/express-error-handler
 ```
 
 or with yarn:
 
 ```bash
-yarn add @infotition/classnames
+yarn add @infotition/express-error-handler
 ```
 
 # Getting started
 
-```jsx
-import { classNames } from '@infotition/classnames';
+Convert and catch errors as express middleware:
 
-classNames('foo', 'bar', 'infotition'); // => 'foo bar infotition'
-classNames(6 > 5 && 'foo', 'infotition', 5 > 6 && 'bar'); // => 'foo bar'
+```ts
+import { errorConverter, errorHandler, ApiError } from '@infotition/express-error-handler';
+import express, { Request, Response,NextFunction } from 'express';
+
+const app = express();
+
+// ... other middlewares
+
+// convert error to ApiError, if needed
+app.use((err: ApiError, _: Request, __: Response, next: NextFunction) =>
+  errorConverter(err, next),
+);
+
+// handle error
+app.use((err: ApiError, _: Request, res: Response, __: NextFunction) =>
+  errorHandler(err, logger, res),
+);
+```
+
+Catch the actual thrown api errors in the routes:
+
+```ts
+import { Router } from 'express';
+import { catchAsync } from '@infotition/express-error-handler';
+
+export const router = Router();
+
+const testController = catchAsync(async (_, res) => {
+  res.status(200).send("works");
+});
+
+router.route('/test').get(testController);
 ```
 
 ## Development
@@ -48,8 +74,8 @@ classNames(6 > 5 && 'foo', 'infotition', 5 > 6 && 'bar'); // => 'foo bar'
 If you want to develop this repository, clone it and change the directory of your terminal to the downloaded repository.
 
 ```bash
-$ git clone https://github.com/Infotition/classnames.git
-$ cd classnames
+$ git clone https://github.com/Infotition/express-error-handler.git
+$ cd express-error-handler
 ```
 
 Now you can install all development and production dependencies.
@@ -59,12 +85,12 @@ yarn install --or-- npm install
 ```
 
 The following scripts are defined in the `package.json`:
-- `dev`           - Rebuilds the package after every change.
-- `build`         - Builds the package via rollup.
-- `clean`         - Deletes build files from folder.
-- `clean:full`    - Deletes build files and node modules from folder.
-- `test`          - Runs the jest integration tests.
-- `test:coverage` - Runs the jest tests with coverage report.
+- `dev`    - Rebuilds the package after every change.
+- `build`  - Builds the package via rollup.
+- `clean`  - Deletes build files from folder.
+- `lint`   - Lints the source code.
+- `deploy` - Creates a cleaned package and publishes it to npm.
+- `test`   - Runs the jest integration tests.
 
 ## Contribution
 
@@ -80,3 +106,4 @@ If you have found a bug or if you have a feature request, please report them at 
 ## License
 
 This repo is covered under the MIT License, see the [LICENSE](./LICENSE) file for more information.
+
