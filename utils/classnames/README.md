@@ -1,13 +1,9 @@
 <div id="top" />
 
-[![package size][size-shield]][size-url]
-[![workflow state][workflow-shield]][workflow-url]
-[![MIT license][license-shield]][license-url]
-
 <br />
 <div align="center">
   <a href="http://infotition.de">
-    <img src="https://raw.githubusercontent.com/Infotition/infopackages/main/.github/assets/logo.png" width="80" height="80" alt="infotition logo" />
+    <img src="https://raw.githubusercontent.com/Infotition/infopackages/main/.github/assets/logo.png" width="80" alt="infotition logo" />
   </a>
 
   <h3 align="center">Infotition's class names utilities</h3>
@@ -23,6 +19,18 @@
     <a href="https://github.com/Infotition/infopackages/issues/new?template=feature_request.md">Report Bug</a>
     ·
     <a href="https://github.com/Infotition/infopackages/issues/new?template=bug_report.md">Request Feature</a>
+  </p>
+
+  <p align="center">
+  	<a href="https://github.com/Infotition/infopackages/blob/main/LICENSE" title="license">
+			<img src="https://img.shields.io/github/license/Infotition/infopackages?style=for-the-badge" alt="license" />
+		</a>
+    <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml" title="workflow">
+			<img src="https://img.shields.io/github/workflow/status/Infotition/infopackages/CI?style=for-the-badge" alt="workflow" />
+		</a>
+    <a href="https://www.npmjs.com/package/@infotition/classnames" title="package size">
+			<img src="https://img.shields.io/bundlephobia/minzip/@infotition/classnames?style=for-the-badge" alt="package size" />
+		</a>
   </p>
 </div>
 
@@ -125,11 +133,3 @@ Project Link: [https://github.com/Infotition](https://github.com/Infotition)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-[license-shield]: https://img.shields.io/github/license/Infotition/infopackages?style=for-the-badge
-[license-url]: https://github.com/Infotition/infopackages/blob/main/LICENSE
-
-[workflow-shield]: https://img.shields.io/github/workflow/status/Infotition/infopackages/CI?style=for-the-badge
-[workflow-url]: https://github.com/Infotition/infopackages/actions/workflows/ci.yaml
-
-[size-shield]: https://img.shields.io/bundlephobia/minzip/@infotition/classnames?style=for-the-badge
-[size-url]: https://www.npmjs.com/package/@infotition/classnames
