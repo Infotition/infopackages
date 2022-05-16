@@ -4,6 +4,7 @@
   "author": "Infotition",
   "license": "MIT",
   "private": true,
+  "repository": "https://github.com/Infotition/infopackages.git",
   "workspaces": [
     "components/*",
     "utils/*"
@@ -14,7 +15,8 @@
     "test": "turbo run test",
     "build": "turbo run build",
     "deploy": "turbo run deploy",
-    "clean": "turbo run clean --force"
+    "clean": "turbo run clean --force",
+    "docs": "tsi docs --workspaces components,utils"
   },
   "devDependencies": {
     "husky": "^7.0.4",

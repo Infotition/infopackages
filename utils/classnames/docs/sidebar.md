@@ -1,2 +1,0 @@
-- [Getting Started](/)
-- [API Reference](api-reference.md)
