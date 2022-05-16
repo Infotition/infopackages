@@ -47,7 +47,7 @@
   </ol>
 </details>
 
-## Getting started
+# Getting started
 
 The `classNames` function takes any number of argument which can be strings or booleans. Any given boolean gets ignored while the strings are combined with an empty space as separator. This allows conditional shortcuts like `isAdmin && 'admin'` without cluttering the class names with false string values if the expression evaluates to false.
 
