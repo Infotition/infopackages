@@ -1,10 +1,8 @@
 <div id="top" />
 
-<div align="center">
 [![package size][size-shield]][size-url]
 [![workflow state][workflow-shield]][workflow-url]
 [![MIT license][license-shield]][license-url]
-</div>
 
 <br />
 <div align="center">
