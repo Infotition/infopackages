@@ -10,20 +10,22 @@
   "repository": "https://github.com/Infotition/classnames.git",
   "scripts": {
     "dev": "tsi watch",
-    "test": "tsi test --tsi ../..",
+    "test": "tsi test",
     "lint": "tsi lint",
-    "build": "tsi build --types --tsc",
-    "deploy": "tsi publish --license ../../LICENSE",
     "clean": "tsi clean",
+    "build": "tsi build --types",
+    "deploy": "tsi publish",
+    "docs": "npx docsify-cli serve ./docs",
     "version": "echo %npm_package_version%"
   },
   "devDependencies": {
-    "@infotition/tsi": "^2.9.0",
     "@infotition/eslint-config": "^2.2.0",
     "@infotition/prettier-config": "^1.0.0",
+    "@infotition/tsi": "^2.9.0",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.25",
     "husky": "^7.0.4",
+    "typedoc": "^0.22.15",
     "typescript": "^4.6.3"
   },
   "prettier": "@infotition/prettier-config",
