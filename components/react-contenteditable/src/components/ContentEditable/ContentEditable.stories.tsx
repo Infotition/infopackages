@@ -1,5 +1,4 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta  } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ContentEditable } from './ContentEditable';
 
@@ -9,22 +8,26 @@ export default {
 } as ComponentMeta<typeof ContentEditable>;
 
 const container = {
-  width: "100%",
-  height: "100vh",
-  justifyContent: "center",
-  display: "flex",
-  alignItems: "center",
-}
+  width: '100%',
+  height: '100vh',
+  justifyContent: 'center',
+  display: 'flex',
+  alignItems: 'center',
+};
 
-const Template: ComponentStory<typeof ContentEditable> = (args) => <div style={container}><ContentEditable {...args} /></div>;
+const Template: ComponentStory<typeof ContentEditable> = (args) => (
+  <div style={container}>
+    <ContentEditable {...args} />
+  </div>
+);
 
 export const Simple = Template.bind({});
 Simple.args = {
-  html: "Edit me!",
-  style: {width: "50%"},
-  Tag: "div",
+  html: 'Edit me!',
+  style: { width: '50%' },
+  Tag: 'div',
   readonly: false,
-  lang: "en",
+  lang: 'en',
   spellcheck: false,
   headless: false,
 };

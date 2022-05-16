@@ -1,7 +1,6 @@
-import React, { FunctionComponent, useRef } from 'react';
-import { ContentEditableProps, ChangeCallback } from './ContentEditable.types';
-
+import { FunctionComponent, useRef } from 'react';
 import styles from './ContentEditable.module.scss';
+import { ContentEditableProps, ChangeCallback } from './ContentEditable.types';
 
 /**
  * React component representing an element with editable contents.

@@ -22,14 +22,14 @@
   </p>
 
   <p align="center">
-  	<a href="https://github.com/Infotition/infopackages/blob/main/LICENSE" title="license">
-			<img src="https://img.shields.io/github/license/Infotition/infopackages?style=for-the-badge" alt="license" />
+    <a href="https://www.npmjs.com/package/@infotition/classnames" title="package size">
+			<img src="https://img.shields.io/bundlephobia/minzip/@infotition/classnames?style=for-the-badge" alt="package size" />
 		</a>
     <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml" title="workflow">
 			<img src="https://img.shields.io/github/workflow/status/Infotition/infopackages/CI?style=for-the-badge" alt="workflow" />
 		</a>
-    <a href="https://www.npmjs.com/package/@infotition/classnames" title="package size">
-			<img src="https://img.shields.io/bundlephobia/minzip/@infotition/classnames?style=for-the-badge" alt="package size" />
+  	<a href="https://github.com/Infotition/infopackages/blob/main/LICENSE" title="license">
+			<img src="https://img.shields.io/github/license/Infotition/infopackages?style=for-the-badge" alt="license" />
 		</a>
   </p>
 </div>
