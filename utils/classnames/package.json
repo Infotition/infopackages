@@ -19,8 +19,6 @@
     "version": "echo %npm_package_version%"
   },
   "devDependencies": {
-    "@infotition/eslint-config": "^2.2.0",
-    "@infotition/prettier-config": "^1.0.0",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.25",
     "husky": "^7.0.4",
