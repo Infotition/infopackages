@@ -14,7 +14,7 @@
     "lint": "tsi lint",
     "clean": "tsi clean",
     "build": "tsi build --types",
-    "deploy": "tsi publish --dry",
+    "deploy": "tsi publish",
     "docs": "npx docsify-cli serve ./docs",
     "version": "echo %npm_package_version%"
   },
