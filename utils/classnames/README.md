@@ -11,7 +11,7 @@
   <p align="center">
     Utility function for conditionally joining class names together.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://infotition.github.io/infopackages/#/classnames/index"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://www.npmjs.com/package/@infotition/classnames">View Package</a>

@@ -18,6 +18,9 @@
     "clean": "turbo run clean --force",
     "docs": "tsi docs --workspaces components,utils"
   },
+  "dependencies": {
+    "@infotition/tsi": "^3.0.2"
+  },
   "devDependencies": {
     "husky": "^7.0.4",
     "turbo": "latest"
