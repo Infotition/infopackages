@@ -15,8 +15,7 @@
     "clean": "tsi clean",
     "build": "tsi build --types",
     "deploy": "tsi publish",
-    "docs": "npx docsify-cli serve ./docs",
-    "version": "echo %npm_package_version%"
+    "docs": "npx docsify-cli serve ./docs"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
