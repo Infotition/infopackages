@@ -1,8 +1,8 @@
 const config = {
   title: 'Infopackages',
   tagline: "Collection of infotition's packages.",
-  url: 'http://infotition.de/',
-  baseUrl: '/docs/',
+  url: 'https://infotition.github.io',
+  baseUrl: '/infopackages/',
   favicon: '/favicon.ico',
   organizationName: 'Infotition',
   projectName: 'infopackages',
