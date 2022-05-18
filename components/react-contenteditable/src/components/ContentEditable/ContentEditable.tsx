@@ -38,7 +38,7 @@ export const ContentEditable: FunctionComponent<ContentEditableProps> = ({
       onInput={({ target }) => handleCallback(target, onChange)}
       onBlur={({ target }) => handleCallback(target, onBlur)}
       onFocus={({ target }) => handleCallback(target, onFocus)}
-      className={`${className} ${headless ? styles['content-editable'] : ''}`}
+      className={`${className} ${!headless ? styles['content-editable'] : ''}`}
       lang={lang}
       spellCheck={spellcheck}
       style={style}

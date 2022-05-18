@@ -16,9 +16,12 @@
 **/package/
 **/.parcel-cache/
 **/.turbo/
+**/build/
 
 # auto generated files
 **/.husky/_/
+**/.docusaurus
+**/.cache-loader
 
 # error / debug logs
 yarn-debug.log*

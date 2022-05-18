@@ -1,6 +1,6 @@
 {
   "name": "@infotition/react-contenteditable",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "React component representing an element with editable contents.",
   "author": "infotition",
   "license": "MIT",
@@ -22,8 +22,7 @@
     "clean": "tsi clean",
     "build": "tsi build --types --extract",
     "deploy": "tsi publish",
-    "docs": "tsi storybook",
-    "version": "echo %npm_package_version%"
+    "docs:dev": "tsi storybook"
   },
   "peerDependencies": {
     "react": ">=18",

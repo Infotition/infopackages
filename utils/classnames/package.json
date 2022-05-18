@@ -14,8 +14,7 @@
     "lint": "tsi lint",
     "clean": "tsi clean",
     "build": "tsi build --types",
-    "deploy": "tsi publish",
-    "docs": "npx docsify-cli serve ./docs"
+    "deploy": "tsi publish"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",

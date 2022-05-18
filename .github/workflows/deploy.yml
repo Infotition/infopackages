@@ -1,4 +1,4 @@
-name: deploy
+name: Deploy packages and docs
 
 on:
   release:
@@ -32,3 +32,14 @@ jobs:
         run: yarn deploy
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build docs
+        run: yarn docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/infopackages/build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com

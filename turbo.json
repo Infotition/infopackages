@@ -20,6 +20,7 @@
       "outputs": [],
       "inputs": ["src/**/*.(ts|tsx)"]
     },
-    "clean": { "outputs": [] }
+    "clean": { "outputs": [] },
+    "docs": { "outputs": ["build/**"] }
   }
 }
