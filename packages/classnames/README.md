@@ -87,7 +87,7 @@ yarn install
 At this point everything ist installed. Now change your directory to the classname utility.
 
 ```bash
-cd infopackages/utils/classnames
+cd infopackages/packages/classnames
 ```
 
 The following scripts are defined in the `package.json` and can be used for developing with `yarn`:

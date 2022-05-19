@@ -12,7 +12,7 @@
     "dev": "tsi watch --format cjs",
     "test": "tsi test",
     "lint": "tsi lint",
-    "clean": "tsi clean",
+    "clean": "tsi clean --modules",
     "build": "tsi build --types --format cjs",
     "deploy": "tsi publish --dry",
     "version": "echo %npm_package_version%"
