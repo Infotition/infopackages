@@ -6,46 +6,24 @@ slug: /
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Infopackages is a collection of infotition node modules consisting of components and utilities. If you want to learn more about the packages you can look up the docs. Here you only find a list of all modules.
 
-## Getting Started
+For development on the web we focus on the following Tech Stack:
+- React / Next.js for frontend
+- Express.js for backend
+- Typescript
 
-Get started by **creating a new site**.
+This monorepo builds on top of these technologies to provide a useful set of small, efficient and reusable modules.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Module Overview
 
-### What you'll need
+### Packages
 
-- [Node.js](https://nodejs.org/en/download/) version 14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- [classnames](/category/classnames) - Utility function for conditionally joining class names together.
+- [express-error-handler](/category/express-error-handler) - An utility package for easy express error handling.
 
-## Generate a new site
+### Components
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- [react-contenteditable](/category/react-contenteditable) - A small and simple react component representing an element with editable contents.

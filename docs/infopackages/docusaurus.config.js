@@ -41,7 +41,7 @@ const config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Infopackages',
+      title: 'NFOPACKAGES',
       hideOnScroll: true,
       logo: {
         alt: 'Infopackages',
@@ -77,8 +77,12 @@ const config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Packages',
+              to: '/category/packages',
+            },
+            {
+              label: 'Components',
+              to: '/category/components',
             },
           ],
         },
@@ -86,16 +90,12 @@ const config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discord.gg/NpxrDGYDwV',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/infotition',
             },
           ],
         },
@@ -103,8 +103,8 @@ const config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Medium',
+              href: 'https://medium.com/@infotition',
             },
             {
               label: 'GitHub',
@@ -113,7 +113,7 @@ const config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Infotition, Inc. Built with Docusaurus.`,
     },
     prism: {
       defaultLanguage: 'js',
