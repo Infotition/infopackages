@@ -16,7 +16,7 @@
     "test": "turbo run test",
     "build": "turbo run build",
     "deploy": "turbo run deploy",
-    "clean": "turbo run clean --force&&tsi clean --modules",
+    "clean": "turbo run clean --force&&tsi clean",
     "docs": "turbo run build --filter=infopackages"
   },
   "devDependencies": {

@@ -13,7 +13,7 @@
     "dev": "tsi watch",
     "test": "tsi test",
     "lint": "tsi lint",
-    "clean": "tsi clean --modules",
+    "clean": "tsi clean",
     "build": "tsi build --types --format cjs",
     "deploy": "tsi publish"
   },

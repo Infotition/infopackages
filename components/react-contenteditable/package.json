@@ -19,7 +19,7 @@
     "dev": "tsi watch --extract",
     "test": "tsi test",
     "lint": "tsi lint",
-    "clean": "tsi clean --modules",
+    "clean": "tsi clean",
     "build": "tsi build --types --extract",
     "deploy": "tsi publish",
     "docs:dev": "tsi storybook"
