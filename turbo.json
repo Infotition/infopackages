@@ -13,6 +13,7 @@
       "inputs": ["src/**/*.(ts|tsx)"]
     },
     "test": {
+      "dependsOn": ["build"],
       "outputs": [],
       "inputs": ["**/*.test.(ts|tsx)", "src/**/*.(ts|tsx)"]
     },
