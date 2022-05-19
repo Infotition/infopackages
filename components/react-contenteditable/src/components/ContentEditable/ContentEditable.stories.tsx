@@ -15,11 +15,13 @@ const container = {
   alignItems: 'center',
 };
 
-const Template: ComponentStory<typeof ContentEditable> = (args) => (
-  <div style={container}>
-    <ContentEditable {...args} />
-  </div>
-);
+const Template: ComponentStory<typeof ContentEditable> = (args) => {
+  return (
+    <div style={container}>
+      <ContentEditable {...args} />
+    </div>
+  );
+};
 
 export const Simple = Template.bind({});
 Simple.args = {

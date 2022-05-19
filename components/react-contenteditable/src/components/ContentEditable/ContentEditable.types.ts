@@ -1,6 +1,10 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, KeyboardEvent } from 'react';
 
 export type ChangeCallback = (value: string) => void;
+export type KeyboardCallback = (
+  type: 'up' | 'down',
+  event: KeyboardEvent,
+) => void;
 
 export type ContentEditableProps = {
   /** Inner html of the editable element. */
@@ -25,4 +29,6 @@ export type ContentEditableProps = {
   onBlur?: ChangeCallback;
   /** Callback whenever the element has received [focus](https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event). */
   onFocus?: ChangeCallback;
+  /** Callback whenever the element has received and [keyboard event](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent). */
+  onKey?: KeyboardCallback;
 };

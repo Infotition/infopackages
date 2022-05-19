@@ -1,9 +1,10 @@
 {
   "name": "@infotition/classnames",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Utility function for conditionally joining class names together.",
   "license": "MIT",
   "author": "infotition",
+  "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
@@ -13,7 +14,7 @@
     "test": "tsi test",
     "lint": "tsi lint",
     "clean": "tsi clean",
-    "build": "tsi build --types",
+    "build": "tsi build --types --format cjs",
     "deploy": "tsi publish"
   },
   "devDependencies": {

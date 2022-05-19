@@ -7,7 +7,7 @@
   "repository": "https://github.com/Infotition/infopackages.git",
   "workspaces": [
     "components/*",
-    "utils/*",
+    "packages/*",
     "docs/*"
   ],
   "scripts": {
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@infotition/eslint-config": "^2.2.0",
     "@infotition/prettier-config": "^1.0.0",
-    "@infotition/tsi": "^3.1.0",
+    "@infotition/tsi": "^3.2.0",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "turbo": "latest"

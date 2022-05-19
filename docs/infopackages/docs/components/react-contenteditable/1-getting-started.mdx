@@ -1,0 +1,60 @@
+---
+id: contenteditable-getting-started
+title: Getting started
+description: 'Quick introduction of how to use the component.'
+sidebar_position: 1
+---
+
+import { ContentEditable } from '@site/../../components/react-contenteditable/src';
+
+# Getting started
+
+React component representing an custom element with editable contents.
+
+## Quick started
+
+The `ContentEditable` component takes various props to render a custom component with editable content.
+It is written for modern react using react hooks. But why should you need something like this? Maybe you want
+to create a rich text editor with headings, bold text and stuff like this. This component renders the html string
+inline as real html, so you can embed everything in this element.
+
+<ContentEditable html="<h3>Quick Demo (Edit me)</h3>To see this component in action as quickly as possible, you can try it out here and look at its source code." /> <br />
+
+```tsx
+import { ContentEditable } from '@infotition/react-contenteditable';
+import { useState, FunctionComponent } from 'react';
+
+type EditorProps = { initialContent: string; }
+
+const Editor: FunctionComponent<EditorProps> = ({initialContent}) => {
+  const [content, setContent] = useState(initialContent);
+  return <ContentEditable html={content} onChange={setContent} />;
+}
+
+export default Editor;
+```
+
+## Installation
+
+```bash
+npm install @infotition/react-contenteditable
+```
+
+Or:
+
+```bash
+yarn add @infotition/react-contenteditable
+```
+
+If you want the default styling to be enabled, you must import the css file first.
+
+## Features
+
+The following features define this implementation:
+- 100 % type safe, well tested and documented component via Typescript.
+- Full ECMAScript module support.
+- Implemented to use in functional component with react hook api.
+- Less than 600B bundle size with zero dependencies (headless available).
+- Various props to interact with the component.
+- Simple default styling of the editable div.
+

@@ -2,7 +2,7 @@
 type ClassObject = { [key: string]: boolean };
 
 /** The class element which represents a single entry of the class list. Booleans get skipped and class objects evaluated. */
-type ClassElement = string | boolean | ClassObject;
+type ClassElement = string | boolean | undefined | ClassObject;
 
 /**
  * Evaluates the classes object and returns the keys combined as string and separated with an empty
@@ -60,7 +60,7 @@ export const classNames = (...classes: ClassElement[]) => {
   let element: ClassElement;
   for (let i = classes.length - 1; i >= 0; --i) {
     element = classes[i];
-    if (typeof element === 'boolean') continue;
+    if (!element || typeof element === 'boolean') continue;
     if (typeof element === 'string') classNames.push(element);
     else classNames.push(classNamesFromObject(element));
   }

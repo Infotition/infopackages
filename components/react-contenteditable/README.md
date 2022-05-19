@@ -1,54 +1,82 @@
+<div id="top" />
+
+<br />
 <div align="center">
-	<br />
-	<p>
-		<a href="http://infotition.de">
-			<img src="https://raw.githubusercontent.com/Infotition/react-contenteditable/main/.github/assets/infotition_logo.png" width=600px alt="infotition logo" />
+  <a href="http://infotition.de">
+    <img src="https://raw.githubusercontent.com/Infotition/infopackages/main/.github/assets/logo.png" width="80" alt="infotition logo" />
+  </a>
+
+  <h3 align="center">React contenteditable component</h3>
+
+  <p align="center">
+    A small and simple react component representing an element with editable contents
+    <br />
+    <a href="https://infotition.github.io/infopackages/category/react-contenteditable"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://www.npmjs.com/package/@infotition/react-contenteditable">View Package</a>
+    ·
+    <a href="https://github.com/Infotition/infopackages/issues/new?template=feature_request.md">Report Bug</a>
+    ·
+    <a href="https://github.com/Infotition/infopackages/issues/new?template=bug_report.md">Request Feature</a>
+  </p>
+
+  <p align="center">
+    <a href="https://www.npmjs.com/package/@infotition/react-contenteditable" title="package size">
+			<img src="https://img.shields.io/bundlephobia/minzip/@infotition/react-contenteditable?style=for-the-badge" alt="package size" />
 		</a>
-	</p>
-	<h1>React contenteditable component</h1>
-	<p>A small and simple react component representing an element with editable contents.</p>
-  	<p>
-    <a href="https://github.com/Infotition/react-contenteditable/actions/workflows/main.yml" title="build state">
-			<img alt="build state" src="https://github.com/Infotition/react-contenteditable/actions/workflows/main.yml/badge.svg">
+    <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml" title="workflow">
+			<img src="https://img.shields.io/github/workflow/status/Infotition/infopackages/CI?style=for-the-badge" alt="workflow" />
 		</a>
-		<a href="https://www.npmjs.com/package/@infotition/react-contenteditable" title="min zipped size">
-			<img alt="package size" src="https://badgen.net/bundlephobia/minzip/@infotition/react-contenteditable">
+  	<a href="https://github.com/Infotition/infopackages/blob/main/LICENSE" title="license">
+			<img src="https://img.shields.io/github/license/Infotition/infopackages?style=for-the-badge" alt="license" />
 		</a>
-		<a href="https://github.com/Infotition/react-contenteditable/blob/main/LICENSE" title="license">
-			<img src="https://img.shields.io/github/license/Infotition/react-contenteditable" alt="license" />
-		</a>
-	</p>
+  </p>
 </div>
 
-# Installation
-
-With npm:
-
-```bash
-npm install @infotition/react-contenteditable
-```
-
-or with yarn:
-
-```bash
-yarn add @infotition/react-contenteditable
-```
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#development">Development</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#issue-reporting">Issue Reporting</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
 # Getting started
 
-```jsx
+The ContentEditable component takes various props to render a custom component with editable content. It is written for modern react using react hooks. But why should you need something like this? Maybe you want to create a rich text editor with headings, bold text and stuff like this. This component renders the html string inline as real html, so you can embed everything in this element.
+
+```tsx
 import { ContentEditable } from '@infotition/react-contenteditable';
 import { useState, FunctionComponent } from 'react';
 
-const Editor: FunctionComponent = () => {
-  const initialContent = `<h1>Hello World Example</h1>`;
-  const [content, setContent] = useState(initialContent);
+type EditorProps = { initialContent: string; }
 
+const Editor: FunctionComponent<EditorProps> = ({initialContent}) => {
+  const [content, setContent] = useState(initialContent);
   return <ContentEditable html={content} onChange={setContent} />;
 }
 
 export default Editor;
 ```
+
+For more information about props, performance considerations and other useful information, please visit the official [docs](https://infotition.github.io/infopackages/category/react-contenteditable).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Installation
+
+```bash
+yarn add @infotition/react-contenteditable
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 ## Features
 
@@ -60,74 +88,69 @@ The following features define this implementation:
 - Various props to interact with the component.
 - Simple default styling of the editable div.
 
-## Available props
-
-|  prop       | description                                                                       | type                     |
-|-------------|-----------------------------------------------------------------------------------|--------------------------| 
-| html        | Inner html of the editable element.                                               | String? = 'Edit me!'     |
-| Tag         | The tag name of the editable element.                                             | JSXElement? = 'div'      |
-| readonly    | Whether the editing should be disabled or not.                                    | Boolean? = false         |
-| className   | Additional element css class names.                                               | String?                  |
-| lang        | The language, the browser should check spelling in.                               | String? = 'en'           |
-| headless    | Whether default styling should get applied or not.                                | Boolean? = false         |
-| spellcheck  | Whether the browser should check spelling or not.                                 | Boolean? = false         |
-| style       | A collection of css properties which should get applied inline to the element.    | CSSProperties?           | 
-| onChange    | Callback whenever the content changes.                                            | (value: string) => void  |
-| onBlur      | Callback whenever the element is [blurred][blurred].                              | (value: string) => void  |
-| onFocus     | Callback whenever the element has received [focus][focus].                        | (value: string) => void  |
-
-## Examples
-
-you can try infotition's implementation of an **react-contenteditable** component right from your browser to see if it fits your project's needs:
-- [Hello World example](https://codesandbox.io/s/infotition-react-contenteditable-hello-world-sr4z9g): A basic demonstration of the component.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Development
 
-If you want to develop this repository, clone it and change the directory of your terminal to the downloaded repository.
+Infopackages is a mono repository based on [turborepo](https://turborepo.org/). To develop on one single package, you have to clone the whole repository.
+
+We prefer [yarn](https://yarnpkg.com/) for developing. That's why turborepo uses yarn workspaces. To ensure a trouble free development experience we advice to also use it instead of npm.
 
 ```bash
-$ git clone https://github.com/Infotition/react-contenteditable.git
-$ cd react-contenteditable
+$ git clone https://github.com/Infotition/infopackages.git
 ```
 
-Now you can install all development and production dependencies.
+Now install all the (development) dependencies. We prefer [yarn](https://yarnpkg.com/) as package manger, but you can also use np
 
 ```bash
-yarn install --or-- npm install
+yarn install
 ```
 
-The following scripts are defined in the `package.json`:
-- `dev`           - Rebuilds the package after every change.
-- `build`         - Builds the package via rollup.
+At this point everything ist installed. Now change your directory to the react component.
+
+```bash
+cd infopackages/components/react-contenteditable
+```
+
+The following scripts are defined in the `package.json` and can be used for developing with `yarn`:
+- `dev`           - Rebuilds the package after every change (development).
+- `build`         - Builds the package via rollup (production).
 - `clean`         - Deletes build files from folder.
-- `clean:full`    - Deletes build files and node modules from folder.
-- `test`          - Runs the jest integration tests.
-- `test:coverage` - Runs the jest tests with coverage report.
+- `lint`          - Checks the source code for style convention.
+- `test`          - Runs the jest test suits.
+- `deploy`        - Deploys the production package to the npm registry.
+- `docs:dev`      - Starts the development server for the docs.
 
-The examples doesn't have a copy of the package installed. Instead you have to link them to the base package directory. You also need to link the react dependency of the example project to the one of the package, else webpack sees two local copies of react and throws an error.
+This project uses [tsi](https://github.com/Infotition/tsi) as its zero config package development manager. If you want to read more about these scripts you can look them up there.
 
-In the example directory:
-```bash
-npm link ..\..\ ..\..\node_modules\react\ ..\..\node_modules\react-dom\
-```
-
-After hitting `yarn start`, the development server for the example should start.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contribution
 
-We appreciate feedback and contribution to this repo! Before you get started, please see the following:
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-- [Infotition Code of Conduct guidelines](./.github/CODE_OF_CONDUCT.md)
-- [Infotition Contribution guidelines](./.github/CONTRIBUTING.md)
+If you have a suggestion that would make this project better, please fork the repo and create a pull request. Don't forget to give the project a star! Thanks again! But before you get started, please see the following first:
+- [Infotition Code of Conduct guidelines](../../.github/CODE_OF_CONDUCT.md)
+- [Infotition Contribution guidelines](../../.github/CONTRIBUTING.md)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Issue Reporting
 
 If you have found a bug or if you have a feature request, please report them at this repository issues section. For other related questions/support please use the official Infotition [Discord server](https://discord.gg/NpxrDGYDwV).
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## License
 
-This repo is covered under the MIT License, see the [LICENSE](./LICENSE) file for more information.
+Distributed under the MIT License, see the [LICENSE](../../LICENSE) file for more information.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-[blurred]: https://developer.mozilla.org/en-US/docs/web/api/element/blur_event
-[focus]:   https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event
+## Contact
+
+Tobias Kärst - [@infotition](https://twitter.com/infotition) - infotition@gmail.com
+
+Project Link: [https://github.com/Infotition](https://github.com/Infotition)
+
+<p align="right">(<a href="#top">back to top</a>)</p>

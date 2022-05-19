@@ -1,0 +1,73 @@
+---
+id: contenteditable-performance
+title: Performance
+description: 'Performance optimisations for the component.'
+sidebar_position: 2
+---
+
+import { ContentEditable } from '@site/../../components/react-contenteditable/src';
+import { useState, useRef } from 'react'
+
+# Performance considerations
+
+By default, the component does not use state internally to keep track of text changes. It uses react's `useRef` hook to reduce rerenders.
+However, the initial example used `useState` which causes rerender of the parent and so all children components. This was only shown
+for simplicity but should be avoided if possible to reduce render times (especially for big block posts). The following example will
+show the rerendering problem with `useState` and a simple solution to improve the performance.
+
+export const RerenderDemoState = () => {
+  const renders = useRef(0);
+  const [content, setContent] = useState("Edit me!");
+  renders.current += 1;
+  return (
+    <div>
+      <ContentEditable html={content} onChange={setContent} />
+      Component rerenders: <strong>{renders.current}</strong>
+    </div>
+  );
+}
+
+<RerenderDemoState /><br />
+
+Here you can see, that the parent element get's rerendered every time the user types into the editable field. To be fair, 99% of the times
+this won't cause any problems because react is really performant. But why shoot sparrows with cannons if there is an better option.
+
+```tsx
+import { ContentEditable } from '@infotition/react-contenteditable';
+import { useRef, FunctionComponent } from 'react';
+
+type EditorProps = { initialContent: string; }
+
+const Editor: FunctionComponent<EditorProps> = ({initialContent}) => {
+  const content = useRef(initialContent);
+
+  const handleChange = (val: string) => {
+    content.current = val;
+  }
+
+  return <ContentEditable html={content.current} onChange={handleChange} />;
+}
+
+export default Editor;
+```
+
+This example uses `useRef` to keep track of the changes. This causes to rerenderings. If you want to get the current value, you can access it with `content.current`.
+
+export const RerenderDemoRef = () => {
+  const renders = useRef(0);
+  const content = useRef("Edit me!");
+  renders.current += 1;
+    const handleChange = (val) => {
+    content.current = val;
+  }
+  return (
+    <div>
+      <ContentEditable html={content.current} onChange={handleChange} />
+      Component rerenders: <strong>{renders.current}</strong>
+    </div>
+  );
+}
+
+<RerenderDemoRef /><br />
+
+As you can see, the component doesn't get rerenders after it was mounted... and this without even using stuff like `useMemo`.

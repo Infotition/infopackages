@@ -1,4 +1,5 @@
-import { classNames, classNamesFromObject } from '../src/classNames';
+import { classNames } from '../src/';
+import { classNamesFromObject } from '../src/classNames';
 
 describe('Convert class objects to strings for true values.', () => {
   it('should combine the class object', () => {
@@ -25,8 +26,10 @@ describe('Convert class elements to strings.', () => {
     expect(classNames('a', 'bc', 'd')).toEqual('d bc a');
   });
 
-  it('should ignore booleans in result', () => {
-    expect(classNames(true, 'a', 'bc', false, 'd')).toEqual('d bc a');
+  it('should ignore booleans and undefined in result', () => {
+    expect(classNames(true, 'a', 'bc', false, undefined, 'd')).toEqual(
+      'd bc a',
+    );
   });
 
   it('should work conditionally with the && trick', () => {

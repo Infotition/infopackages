@@ -1,3 +1,4 @@
+import { classNames } from '@infotition/classnames';
 import { FunctionComponent, useRef } from 'react';
 import styles from './ContentEditable.module.scss';
 import { ContentEditableProps, ChangeCallback } from './ContentEditable.types';
@@ -22,6 +23,7 @@ export const ContentEditable: FunctionComponent<ContentEditableProps> = ({
   onChange,
   onBlur,
   onFocus,
+  onKey,
 }) => {
   const value = useRef(html);
 
@@ -38,7 +40,9 @@ export const ContentEditable: FunctionComponent<ContentEditableProps> = ({
       onInput={({ target }) => handleCallback(target, onChange)}
       onBlur={({ target }) => handleCallback(target, onBlur)}
       onFocus={({ target }) => handleCallback(target, onFocus)}
-      className={`${className} ${!headless ? styles['content-editable'] : ''}`}
+      onKeyDown={(event) => onKey && onKey('down', event)}
+      onKeyUp={(event) => onKey && onKey('up', event)}
+      className={classNames(className, !headless && styles['content-editable'])}
       lang={lang}
       spellCheck={spellcheck}
       style={style}
