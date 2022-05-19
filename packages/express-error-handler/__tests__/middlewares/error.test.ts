@@ -1,8 +1,8 @@
 import { jest } from '@jest/globals';
 import httpStatus from 'http-status';
 import { createResponse } from 'node-mocks-http';
-import { errorConverter, errorHandler } from '../../src/middlewares/error';
-import { ApiError } from '../../src/models/ApiError';
+
+import { errorConverter, errorHandler, ApiError } from '../../src';
 
 const logger = {
   error: (msg: string) => console.log(msg),

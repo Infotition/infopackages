@@ -40,7 +40,7 @@ export const errorConverter = (err: IError, next: NextFunction) => {
  * @param logger  The logger object to log the error to.
  * @param res     The response object from the express middleware
  */
-export const errorHandler = (err: ApiError, logger: any, res: Response) => {
+export const errorHandler = (err: ApiError, res: Response, logger: any) => {
   const isProd = process.env.NODE_ENV === 'production';
   let { statusCode, message } = err;
 
@@ -57,7 +57,7 @@ export const errorHandler = (err: ApiError, logger: any, res: Response) => {
     ...(!isProd && { stack: err.stack }),
   };
 
-  if (!isProd) {
+  if (!isProd && logger) {
     logger.error(err);
   }
 

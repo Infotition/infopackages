@@ -39,6 +39,7 @@
   <ol>
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#features">Features</a></li>
     <li><a href="#development">Development</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#issue-reporting">Issue Reporting</a></li>

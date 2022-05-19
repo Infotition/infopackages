@@ -2,8 +2,8 @@ import { jest } from '@jest/globals';
 import httpStatus from 'http-status';
 import { createRequest, createResponse } from 'node-mocks-http';
 import { z } from 'zod';
-import { ApiError } from '../../src/models/ApiError';
-import { catchAsync } from '../../src/utils/catchAsync';
+
+import { catchAsync, ApiError } from '../../src';
 
 describe('Catch async utils', () => {
   test('should catch any error and call next on it', async () => {
