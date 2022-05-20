@@ -1,0 +1,36 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { TextField } from './TextField';
+
+export default {
+  title: 'TextField',
+  component: TextField,
+} as ComponentMeta<typeof TextField>;
+
+const container = {
+  width: '100%',
+  height: '100vh',
+  justifyContent: 'center',
+  display: 'flex',
+  alignItems: 'center',
+};
+
+const Template: ComponentStory<typeof TextField> = (args) => {
+  return (
+    <div style={container}>
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      </style>
+      <TextField {...args} />
+    </div>
+  );
+};
+
+export const Simple = Template.bind({});
+Simple.args = {
+  label: '',
+  variant: 'outlined',
+  type: 'text',
+  full: false,
+};
