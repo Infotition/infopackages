@@ -3,6 +3,7 @@
 
 # editor config
 **/.vscode
+**/.todo
 
 # secreat environments
 **/*.env

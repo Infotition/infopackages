@@ -1,7 +1,7 @@
 {
-  "name": "@infotition/react-contenteditable",
-  "version": "2.2.0",
-  "description": "React component representing an element with editable contents.",
+  "name": "@infotition/text-field",
+  "version": "1.0.0",
+  "description": "Lightweight react text field based on material design 3.",
   "author": "infotition",
   "license": "MIT",
   "module": "lib/index.js",
@@ -11,8 +11,7 @@
   "keywords": [
     "react-component",
     "react",
-    "content-editable",
-    "html",
+    "text-field",
     "infotition"
   ],
   "scripts": {
