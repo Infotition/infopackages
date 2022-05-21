@@ -7,6 +7,14 @@ export type TextFieldProps = {
   variant?: 'filled' | 'outlined';
   /** The type of the text field. */
   type?: 'email' | 'password' | 'text' | 'number';
-  /** Whether the text field should be full with or not. */
+  /** Whether the text field should be full with. */
   full?: boolean;
+  /** Whether the input of the field is required. */
+  required?: boolean;
+  /** Whether the input should be read only or not. */
+  readonly?: boolean;
+  /** Whether the input should be disabled or not. */
+  disabled?: boolean;
+  /** Error message which should get displayed below field. */
+  error?: string;
 };

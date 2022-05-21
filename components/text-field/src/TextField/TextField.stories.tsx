@@ -30,7 +30,9 @@ const Template: ComponentStory<typeof TextField> = (args) => {
 export const Simple = Template.bind({});
 Simple.args = {
   label: '',
+  helper: 'Helper text',
   variant: 'outlined',
   type: 'text',
   full: false,
+  required: true,
 };

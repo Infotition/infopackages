@@ -6,47 +6,29 @@ $clr-label: #666666 !default;
 $clr-label-dark: #b6babf !default;
 $clr-border: #c4c4c4 !default;
 $clr-border-dark: #434e5b !default;
+$clr-disabled: #b0b0b0 !default;
+$clr-error: #E00061 !default;
 
 $radius: 0.2rem !default;
 
-.text-field {
-  font-family: 'Poppins', sans-serif;
-}
 
-
-.text-field-container.full-width {
-  width: 100% !important;
-}
-
-.text-field-container.filled.without-label {
-  input {
-    padding: 1.15rem 1rem !important;
-  }
-}
-
-.text-field-container.outlined.without-label {
-  input {
-    box-sizing: border-box;
-
-    &:focus {
-      border: 2px solid $clr-primary !important;
-      margin: 0 -1px;
-    }
-
-    &:not(:placeholder-shown) {
-      border: 1px solid $clr-border;
-    }
-  }
-}
+/* GLOBAL STYLES */
 
 .text-field-container {
   font-family: 'Poppins', sans-serif;
-  position: relative;
-  transition: background-color 250ms ease;
+  width: 200px;
+  height: 50px;
 
   * {
     box-sizing: border-box;
   }
+}
+
+.text-field {
+  position: relative;
+  transition: background-color 250ms ease;
+  width: 100%;
+  height: 100%;
 
   input {
     outline: none;
@@ -71,7 +53,75 @@ $radius: 0.2rem !default;
   }
 }
 
-.text-field-container.filled  {
+.helper {
+  padding: 5px 0 0 20px;
+  font-size: .8rem;
+  display: block;
+  transition: opacity 100ms ease;
+  color: $clr-label;
+}
+
+/* FULL WIDTH STYLES */
+
+.text-field-container.full-width {
+  width: 100% !important;
+}
+
+/* MISSING LABEL STYLES */
+
+.text-field {
+  /* Place input field in the center. */
+  &.filled.without-label input {
+    padding: 1.15rem 1rem !important;
+  }
+
+  /* Only focus animation and don't remove border if written. */
+  &.outlined.without-label input {
+    &:focus {
+      border: 2px solid $clr-primary !important;
+      margin: 0 -1px;
+    }
+
+    &:not(:placeholder-shown) {
+      border: 1px solid $clr-border;
+    }
+  }
+
+  /* If label is missing, also hide the helper text. */
+  &.without-label ~ .helper {
+    opacity: 0;
+  }
+
+  /* If text field is focused, show the helper text again. */
+  &.without-label:focus-within ~ .helper {
+    opacity: 1;
+  }
+}
+
+/* DISABLED STYLES */
+
+.disabled {
+  .helper, .text-field label, .text-field input {
+    color: $clr-disabled !important;
+  }
+
+  .text-field input:hover ~ fieldset,
+  .text-field input:hover:not(:focus):placeholder-shown {
+    border-color: $clr-border !important;
+  }
+
+  .filled {
+    background-color: #e9e8e8 !important;
+
+    &::before {
+      border-bottom: 1px dashed $clr-border !important;
+    }
+  }
+}
+
+/* FILLED VARIANT STYLES */
+
+.text-field.filled  {
   border-radius: $radius;
   background-color: #f5f5f5;
   position: relative;
@@ -86,14 +136,14 @@ $radius: 0.2rem !default;
 
   &::before, &::after {
     content: '';
+    position: absolute;
     display: block;
+    bottom: 0;
+    width: 100%;
   }
 
   &::before {
     border-bottom: 1px solid $clr-border;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
   }
 
   &::after {
@@ -117,10 +167,9 @@ $radius: 0.2rem !default;
   }
 }
 
-.text-field-container.outlined  {
-  width: 200px;
-  height: 50px;
+/* OUTLINED VARIANT STYLES */
 
+.text-field.outlined  {
   fieldset {
     position: absolute;
     margin: 0;
@@ -180,14 +229,44 @@ $radius: 0.2rem !default;
   }
 }
 
-.helper{
-  padding: 5px 0 0 20px;
-  font-size: .8rem;
-  color: $clr-label;
-  display: block;
+/* ERROR STYLES */
+
+.error {
+  .text-field.outlined input {
+    border: 1px solid $clr-error;
+
+    &:focus ~ fieldset {
+      border: 2px solid $clr-error;
+    }
+
+    &:focus, &:not(:placeholder-shown) {
+      border: none;
+    }
+
+    &:not(:focus):not(:placeholder-shown) ~ fieldset,
+    &:hover:not(:focus):not(:placeholder-shown) ~ fieldset,
+    &:hover:not(:focus):placeholder-shown {
+      border: 1px solid $clr-error;
+    }
+  }
+
+  .text-field.filled::after {
+    border-bottom: 2px solid $clr-error;
+    transform: scaleX(1);
+  }
+
+  .text-field label {
+    color: $clr-error !important;
+  }
+
+  .helper {
+    color: $clr-error;
+  }
 }
 
-:global(.dark) .text-field-container {
+/* THEME OVERRIDES */
+
+:global(.dark) .text-field {
   input {
     color: $clr-text-dark;
     border: 1px solid $clr-border-dark;
