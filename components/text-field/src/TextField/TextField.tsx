@@ -1,5 +1,5 @@
 import { classNames } from '@infotition/classnames';
-import { FunctionComponent, useId } from 'react';
+import { ChangeEvent, FunctionComponent, useId } from 'react';
 
 import { Show } from './Show';
 import styles from './TextField.module.scss';
@@ -15,8 +15,14 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
   required = false,
   readonly = false,
   disabled = false,
+  value = '',
+  onChange,
 }) => {
   const textFieldId = useId();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange && onChange(e.target.value);
+  };
 
   const containerClasses = classNames(
     styles['text-field-container'],
@@ -34,16 +40,16 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
 
   // TODO: Add icon compound components
   // TODO: Compound label, buttons etc.
-
   // TODO: Password toggle button
-  // TODO: Word count label
 
-  // TODO: Value, on change prop
+  // TODO: Word count label
 
   label = required && label ? `${label} *` : label;
 
   const inputProps = {
     placeholder: ' ',
+    onChange: handleChange,
+    defaultValue: value,
     disabled,
     type,
     readonly,

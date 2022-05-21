@@ -1,3 +1,5 @@
+export type ChangeCallback = (value: string) => void;
+
 export type TextFieldProps = {
   /** The label of the text field. */
   label?: string;
@@ -17,4 +19,8 @@ export type TextFieldProps = {
   disabled?: boolean;
   /** Error message which should get displayed below field. */
   error?: string;
+  /** The current value of the text field. */
+  value?: string;
+  /** Callback whenever the content changes. */
+  onChange?: ChangeCallback;
 };
