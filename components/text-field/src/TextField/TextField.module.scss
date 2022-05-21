@@ -11,15 +11,6 @@ $clr-error: #e00061 !default;
 
 $radius: 0.2rem !default;
 
-.test {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 /* GLOBAL STYLES */
 
 .text-field-container {
@@ -43,7 +34,6 @@ $radius: 0.2rem !default;
     color: $clr-text;
     background: none;
     border: none;
-    /*width: calc(100% - 1rem - 25px) !important; */
 
     /* If element is focused the label color is primary. */
     &:focus ~ label {
@@ -55,7 +45,7 @@ $radius: 0.2rem !default;
     position: absolute;
     left: 1rem;
     color: $clr-label;
-    transition: bottom 200ms ease, top 200ms ease, font-size 200ms ease;
+    transition: bottom 200ms ease, top 200ms ease, left 200ms ease, font-size 200ms ease;
     pointer-events: none;
     top: 50%;
     transform: translateY(-50%);
@@ -68,7 +58,8 @@ $radius: 0.2rem !default;
   align-items: center;
 }
 
-.helper, .limit {
+.helper,
+.limit {
   font-size: 0.7rem;
   display: block;
   transition: opacity 100ms ease;
@@ -81,6 +72,53 @@ $radius: 0.2rem !default;
 
 .limit {
   padding: 5px 1rem 0 0;
+}
+
+.right-adornment-item, .left-adornment-item {
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+
+  svg {
+    color: $clr-label !important;
+  }
+
+  &:disabled svg {
+    color: $clr-border !important;
+  }
+}
+
+.right-adornment-item {
+  right: calc(1rem - 10px);
+}
+
+.left-adornment-item {
+  left: calc(1rem - 10px);
+}
+
+/* ADORNMENT STYLES */
+.right-adornment {
+  input {
+    width: calc(100% - 1rem - 15px) !important;
+  }
+}
+
+.left-adornment {
+  input {
+    width: calc(100% - 1rem - 15px) !important;
+    margin-left: calc(1rem + 15px);
+  }
+
+  label {
+    left: 3rem;
+  }
+}
+
+.left-adornment.right-adornment {
+  input {
+    width: calc(100% - 1rem - 15px - 1rem - 15px) !important;
+    margin-left: calc(1rem + 15px);
+  }
 }
 
 /* FULL WIDTH STYLES */
@@ -125,12 +163,12 @@ $radius: 0.2rem !default;
 .disabled {
   .helper,
   .text-field label,
-  .text-field input {
+  .text-field input  {
     color: $clr-disabled !important;
   }
 
   .text-field input:hover ~ fieldset,
-  .text-field input:hover:not(:focus):placeholder-shown {
+  .text-field input:hover:not(:focus):placeholder-shown ~ div {
     border-color: $clr-border !important;
   }
 
@@ -232,6 +270,7 @@ $radius: 0.2rem !default;
     &:not(:placeholder-shown) ~ label {
       top: 1px;
       font-size: 0.8rem;
+      left: 1.2rem;
     }
 
     /* If element is focused the border color is primary. */
@@ -266,20 +305,22 @@ $radius: 0.2rem !default;
 
 .error {
   .text-field.outlined input {
-    border: 1px solid $clr-error;
+    ~ div {
+      border: 1px solid $clr-error;
+    }
 
     &:focus ~ fieldset {
       border: 2px solid $clr-error;
     }
 
-    &:focus,
-    &:not(:placeholder-shown) {
+    &:focus ~ div,
+    &:not(:placeholder-shown) ~ div {
       border: none;
     }
 
     &:not(:focus):not(:placeholder-shown) ~ fieldset,
     &:hover:not(:focus):not(:placeholder-shown) ~ fieldset,
-    &:hover:not(:focus):placeholder-shown {
+    &:hover:not(:focus):placeholder-shown ~ div {
       border: 1px solid $clr-error;
     }
   }

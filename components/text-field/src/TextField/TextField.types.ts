@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export type ChangeCallback = (value: string) => void;
 
 export type TextFieldProps = {
@@ -25,4 +27,8 @@ export type TextFieldProps = {
   onChange?: ChangeCallback;
   /** The input limit of the text field. Must be positive. */
   maxLength?: number;
+  /** The adornment to the right of the input field. */
+  rightAdornment?: ReactElement;
+  /** The adornment to the left of the input field. */
+  leftAdornment?: ReactElement;
 };

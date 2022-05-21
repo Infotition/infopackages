@@ -9,6 +9,7 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
   disabled = false,
   className = '',
   size = 'medium',
+  onClick,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -17,13 +18,14 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
     classList?.remove(styles.animate);
     classList?.add(styles.animate);
     setTimeout(() => classList?.remove(styles.animate), 400);
+    onClick && onClick();
   };
 
   const buttonClasses = classNames(
-    className,
     styles['icon-button'],
     disabled && styles.disabled,
     styles[size],
+    className,
   );
 
   const buttonProps = {

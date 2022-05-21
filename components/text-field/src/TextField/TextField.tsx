@@ -1,6 +1,14 @@
 import { classNames } from '@infotition/classnames';
 import { IconButton } from '@infotition/icon-button';
-import { ChangeEvent, FunctionComponent, useId, useState } from 'react';
+import {
+  cloneElement,
+  ChangeEvent,
+  FunctionComponent,
+  useId,
+  useState,
+} from 'react';
+import { EyeIcon } from '../Icons/Eye';
+import { EyeOffIcon } from '../Icons/EyeOff';
 
 import { Show } from './Show';
 import styles from './TextField.module.scss';
@@ -19,16 +27,28 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
   value = '',
   onChange,
   maxLength,
+  rightAdornment,
+  leftAdornment,
 }) => {
   const textFieldId = useId();
   const [wordCount, setWordCount] = useState(value.length);
+  const [fieldType, setFieldType] = useState(type);
+
+  const toggleFieldVisibility = () => {
+    setFieldType(fieldType === 'password' ? 'text' : 'password');
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
-
     if (maxLength) setWordCount(val.length);
     onChange && onChange(val);
   };
+
+  if (required && label) label = `${label} *`;
+  if (type == 'password') {
+    const icon = fieldType === 'password' ? EyeIcon : EyeOffIcon;
+    rightAdornment = <IconButton icon={icon} onClick={toggleFieldVisibility} />;
+  }
 
   const containerClasses = classNames(
     styles['text-field-container'],
@@ -42,44 +62,30 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
     styles[variant],
     full && styles['full-width'],
     !label && styles['without-label'],
+    rightAdornment && styles['right-adornment'],
+    leftAdornment && styles['left-adornment'],
   );
-
-  // TODO: Add icon compound components
-  // TODO: Compound label, buttons etc.
-  // TODO: Password toggle button
-
-  label = required && label ? `${label} *` : label;
 
   const inputProps = {
     placeholder: ' ',
     onChange: handleChange,
     defaultValue: value,
+    type: fieldType,
     disabled,
-    type,
     readonly,
     required,
     ...((maxLength ?? 0) > 0 && { maxLength }),
   };
 
-  const eye = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.test}
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-      <path
-        fillRule="evenodd"
-        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-
   return (
     <div className={containerClasses}>
       <div className={textFieldClasses}>
+        {leftAdornment &&
+          cloneElement(leftAdornment, {
+            className: styles['left-adornment-item'],
+            disabled,
+          })}
+
         <input id={textFieldId} {...inputProps} />
         <div></div>
 
@@ -92,7 +98,11 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
           </Show>
         </Show>
 
-        {eye}
+        {rightAdornment &&
+          cloneElement(rightAdornment, {
+            className: styles['right-adornment-item'],
+            disabled,
+          })}
       </div>
 
       <div className={styles.below}>

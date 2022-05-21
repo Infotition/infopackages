@@ -2,6 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { TextField } from './TextField';
 
+import '@infotition/icon-button/lib/icon-button.min.css';
+
 export default {
   title: 'TextField',
   component: TextField,

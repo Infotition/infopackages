@@ -4,5 +4,6 @@ export type IconButtonProps = {
   icon: ReactElement;
   disabled?: boolean;
   className?: string;
-  size: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
+  onClick?: VoidFunction;
 };
