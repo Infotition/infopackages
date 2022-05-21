@@ -1,4 +1,5 @@
 import { classNames } from '@infotition/classnames';
+import { IconButton } from '@infotition/icon-button';
 import { ChangeEvent, FunctionComponent, useId, useState } from 'react';
 
 import { Show } from './Show';

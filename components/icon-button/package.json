@@ -1,7 +1,7 @@
 {
-  "name": "@infotition/text-field",
+  "name": "@infotition/icon-button",
   "version": "1.0.0",
-  "description": "Lightweight react text field based on material design 3.",
+  "description": "Lightweight react icon button based on material design 3.",
   "author": "infotition",
   "license": "MIT",
   "module": "lib/index.js",
@@ -11,7 +11,7 @@
   "keywords": [
     "react-component",
     "react",
-    "text-field",
+    "icon-button",
     "infotition"
   ],
   "scripts": {
@@ -24,8 +24,7 @@
     "docs:dev": "tsi storybook"
   },
   "dependencies": {
-    "@infotition/classnames": "*",
-    "@infotition/icon-button": "*"
+    "@infotition/classnames": "*"
   },
   "peerDependencies": {
     "react": ">=18",
