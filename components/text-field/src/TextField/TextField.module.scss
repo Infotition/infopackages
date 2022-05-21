@@ -1,16 +1,15 @@
-$clr-primary: #5927E5 !default;
-$clr-primary-dark: #BDA9F5 !default;
-$clr-text: #32324D !default;
+$clr-primary: #5927e5 !default;
+$clr-primary-dark: #bda9f5 !default;
+$clr-text: #32324d !default;
 $clr-text-dark: #fff !default;
 $clr-label: #666666 !default;
 $clr-label-dark: #b6babf !default;
 $clr-border: #c4c4c4 !default;
 $clr-border-dark: #434e5b !default;
 $clr-disabled: #b0b0b0 !default;
-$clr-error: #E00061 !default;
+$clr-error: #e00061 !default;
 
 $radius: 0.2rem !default;
-
 
 /* GLOBAL STYLES */
 
@@ -53,12 +52,26 @@ $radius: 0.2rem !default;
   }
 }
 
-.helper {
-  padding: 5px 0 0 20px;
-  font-size: .8rem;
+.below {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.helper,
+.limit {
+  font-size: 0.7rem;
   display: block;
   transition: opacity 100ms ease;
   color: $clr-label;
+}
+
+.helper {
+  padding: 5px 0 0 15px;
+}
+
+.limit {
+  padding: 5px 15px 0 0;
 }
 
 /* FULL WIDTH STYLES */
@@ -88,12 +101,12 @@ $radius: 0.2rem !default;
   }
 
   /* If label is missing, also hide the helper text. */
-  &.without-label ~ .helper {
+  &.without-label ~ div .helper {
     opacity: 0;
   }
 
   /* If text field is focused, show the helper text again. */
-  &.without-label:focus-within ~ .helper {
+  &.without-label:focus-within ~ div .helper {
     opacity: 1;
   }
 }
@@ -101,7 +114,9 @@ $radius: 0.2rem !default;
 /* DISABLED STYLES */
 
 .disabled {
-  .helper, .text-field label, .text-field input {
+  .helper,
+  .text-field label,
+  .text-field input {
     color: $clr-disabled !important;
   }
 
@@ -121,7 +136,7 @@ $radius: 0.2rem !default;
 
 /* FILLED VARIANT STYLES */
 
-.text-field.filled  {
+.text-field.filled {
   border-radius: $radius;
   background-color: #f5f5f5;
   position: relative;
@@ -134,7 +149,8 @@ $radius: 0.2rem !default;
     background-color: darken(#f5f5f5, 2%);
   }
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     display: block;
@@ -157,19 +173,20 @@ $radius: 0.2rem !default;
   }
 
   input {
-    padding: 1.7rem 1rem .5rem 1rem;
+    padding: 1.7rem 1rem 0.5rem 1rem;
 
     /* If element is focused and text was written, move label on top. */
-    &:focus ~ label, &:not(:placeholder-shown) ~ label {
-      top: .9rem;
-      font-size: .7rem;
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
+      top: 0.9rem;
+      font-size: 0.7rem;
     }
   }
 }
 
 /* OUTLINED VARIANT STYLES */
 
-.text-field.outlined  {
+.text-field.outlined {
   fieldset {
     position: absolute;
     margin: 0;
@@ -191,15 +208,16 @@ $radius: 0.2rem !default;
     position: absolute;
     width: 100%;
     height: 100%;
-    padding: .7rem 1rem;
+    padding: 0.7rem 1rem;
     border: 1px solid $clr-border;
     border-radius: $radius;
     z-index: 1;
 
     /* If element is focused and text was written, move label on top. */
-    &:focus ~ label, &:not(:placeholder-shown) ~ label {
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
       top: 1px;
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
 
     /* If element is focused the border color is primary. */
@@ -218,7 +236,8 @@ $radius: 0.2rem !default;
     }
 
     /* If input is focused or text was written, switch to fieldset border. */
-    &:focus, &:not(:placeholder-shown) {
+    &:focus,
+    &:not(:placeholder-shown) {
       border: none;
     }
 
@@ -239,7 +258,8 @@ $radius: 0.2rem !default;
       border: 2px solid $clr-error;
     }
 
-    &:focus, &:not(:placeholder-shown) {
+    &:focus,
+    &:not(:placeholder-shown) {
       border: none;
     }
 
@@ -259,7 +279,7 @@ $radius: 0.2rem !default;
     color: $clr-error !important;
   }
 
-  .helper {
+  .below * {
     color: $clr-error;
   }
 }
@@ -270,7 +290,6 @@ $radius: 0.2rem !default;
   input {
     color: $clr-text-dark;
     border: 1px solid $clr-border-dark;
-
 
     &:focus ~ label {
       color: $clr-primary-dark;

@@ -23,4 +23,6 @@ export type TextFieldProps = {
   value?: string;
   /** Callback whenever the content changes. */
   onChange?: ChangeCallback;
+  /** The input limit of the text field. Must be positive. */
+  maxLength?: number;
 };

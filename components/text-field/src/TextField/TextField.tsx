@@ -1,5 +1,5 @@
 import { classNames } from '@infotition/classnames';
-import { ChangeEvent, FunctionComponent, useId } from 'react';
+import { ChangeEvent, FunctionComponent, useId, useState } from 'react';
 
 import { Show } from './Show';
 import styles from './TextField.module.scss';
@@ -17,11 +17,16 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
   disabled = false,
   value = '',
   onChange,
+  maxLength,
 }) => {
   const textFieldId = useId();
+  const [wordCount, setWordCount] = useState(value.length);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(e.target.value);
+    const val = e.target.value;
+
+    if (maxLength) setWordCount(val.length);
+    onChange && onChange(val);
   };
 
   const containerClasses = classNames(
@@ -42,8 +47,6 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
   // TODO: Compound label, buttons etc.
   // TODO: Password toggle button
 
-  // TODO: Word count label
-
   label = required && label ? `${label} *` : label;
 
   const inputProps = {
@@ -54,6 +57,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
     type,
     readonly,
     required,
+    ...((maxLength ?? 0) > 0 && { maxLength }),
   };
 
   return (
@@ -71,9 +75,16 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
         </Show>
       </div>
 
-      <Show when={helper || error}>
-        <span className={styles.helper}>{error ? error : helper}</span>
-      </Show>
+      <div className={styles.below}>
+        <Show when={helper || error}>
+          <span className={styles.helper}>{error ? error : helper}</span>
+        </Show>
+        <Show when={maxLength}>
+          <span className={styles.limit}>
+            {wordCount} / {maxLength}
+          </span>
+        </Show>
+      </div>
     </div>
   );
 };
