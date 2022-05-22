@@ -49,4 +49,6 @@ export const Simple = Template.bind({});
 Simple.args = {
   icon: eye,
   disabled: false,
+  size: 'medium',
+  ariaLabel: 'hide password button',
 };

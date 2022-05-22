@@ -43,7 +43,7 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
   };
 
   return (
-    <button ref={buttonRef} {...buttonProps}>
+    <button ref={buttonRef} data-testid="icon-btn" {...buttonProps}>
       {cloneElement(icon, { 'aria-hidden': true })}
       <span className="sr-only">{ariaLabel}</span>
     </button>
