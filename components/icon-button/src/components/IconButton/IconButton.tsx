@@ -1,14 +1,23 @@
 import { classNames } from '@infotition/classnames';
-import { FunctionComponent, useRef } from 'react';
+import { cloneElement, FunctionComponent, useRef } from 'react';
 
 import { IconButtonProps } from './IconButton.types';
 
+/**
+ * React component representing an clickable icon button with ripple
+ * animation.
+ *
+ * @example ```js
+ *   <IconButton icon={EyeIcon} onClick={() => console.log('click"')} />
+ * ```
+ */
 export const IconButton: FunctionComponent<IconButtonProps> = ({
   icon,
+  onClick,
   disabled = false,
   className = '',
   size = 'medium',
-  onClick,
+  ariaLabel = 'icon button',
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -35,7 +44,8 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
 
   return (
     <button ref={buttonRef} {...buttonProps}>
-      {icon}
+      {cloneElement(icon, { 'aria-hidden': true })}
+      <span className="sr-only">{ariaLabel}</span>
     </button>
   );
 };
