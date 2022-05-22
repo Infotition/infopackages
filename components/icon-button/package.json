@@ -19,7 +19,7 @@
     "test": "tsi test",
     "lint": "tsi lint",
     "clean": "tsi clean",
-    "build": "tsi build --types --extract",
+    "build": "tsi build --types --extract --extractScss",
     "deploy": "tsi publish",
     "docs:dev": "tsi storybook"
   },

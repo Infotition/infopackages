@@ -5,7 +5,8 @@
     "./lib/colors.scss"
   ],
   "scripts": {
-    "deploy": "tsi publish"
+    "deploy": "tsi publish",
+    "build": "tsi build --extractScss"
   },
   "description": "Infotitions design system based on tailwindcss and sass.",
   "license": "MIT",
