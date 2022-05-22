@@ -1,0 +1,12 @@
+{
+  "name": "@infotition/design-system",
+  "version": "1.0.0",
+  "files": [
+    "./colors.scss"
+  ],
+  "description": "Infotitions design system based on tailwindcss and sass.",
+  "license": "MIT",
+  "author": "infotition",
+  "sideEffects": false,
+  "repository": "https://github.com/Infotition/infopackages.git"
+}

@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import styles from '../index.module.scss';
 import { TextField } from './TextField';
 
 import '@infotition/icon-button/lib/icon-button.min.css';
@@ -16,6 +17,8 @@ const container = {
   display: 'flex',
   alignItems: 'center',
 };
+
+console.log(styles);
 
 const Template: ComponentStory<typeof TextField> = (args) => {
   return (

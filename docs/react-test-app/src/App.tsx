@@ -1,7 +1,9 @@
+import { TextField } from '@infotition/text-field';
+
 const App = () => {
   return (
     <div className="container">
-      <h1>Hello World</h1>
+      <TextField label="Hello World" />
     </div>
   );
 };

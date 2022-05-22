@@ -8,7 +8,8 @@
   "workspaces": [
     "components/*",
     "packages/*",
-    "docs/*"
+    "docs/*",
+    "config/*"
   ],
   "scripts": {
     "reload": "yarn install --force",

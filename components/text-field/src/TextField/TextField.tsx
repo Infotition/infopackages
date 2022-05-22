@@ -11,8 +11,12 @@ import { EyeIcon } from '../Icons/Eye';
 import { EyeOffIcon } from '../Icons/EyeOff';
 
 import { Show } from './Show';
+
 import styles from './TextField.module.scss';
+
 import { TextFieldProps } from './TextField.types';
+
+console.log(styles);
 
 export const TextField: FunctionComponent<TextFieldProps> = ({
   label,
@@ -51,19 +55,19 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
   }
 
   const containerClasses = classNames(
-    styles['text-field-container'],
-    full && styles['full-width'],
-    disabled && styles['disabled'],
-    error && styles['error'],
+    'text-field-container',
+    full && 'full-width',
+    disabled && 'disabled',
+    error && 'error',
   );
 
   const textFieldClasses = classNames(
-    styles['text-field'],
-    styles[variant],
-    full && styles['full-width'],
-    !label && styles['without-label'],
-    rightAdornment && styles['right-adornment'],
-    leftAdornment && styles['left-adornment'],
+    'text-field',
+    variant,
+    full && 'full-width',
+    !label && 'without-label',
+    rightAdornment && 'right-adornment',
+    leftAdornment && 'left-adornment',
   );
 
   const inputProps = {
@@ -82,7 +86,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
       <div className={textFieldClasses}>
         {leftAdornment &&
           cloneElement(leftAdornment, {
-            className: styles['left-adornment-item'],
+            className: 'left-adornment-item',
             disabled,
           })}
 
@@ -100,17 +104,17 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
 
         {rightAdornment &&
           cloneElement(rightAdornment, {
-            className: styles['right-adornment-item'],
+            className: 'right-adornment-item',
             disabled,
           })}
       </div>
 
-      <div className={styles.below}>
+      <div className="below">
         <Show when={helper || error}>
-          <span className={styles.helper}>{error ? error : helper}</span>
+          <span className="helper">{error ? error : helper}</span>
         </Show>
         <Show when={maxLength}>
-          <span className={styles.limit}>
+          <span className="limit">
             {wordCount} / {maxLength}
           </span>
         </Show>

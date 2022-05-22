@@ -1,4 +1,4 @@
-@import './colors.scss';
+@import '../../../../node_modules/@infotition/design-system/colors.scss';
 
 $radius: 0.2rem !default;
 
@@ -15,7 +15,7 @@ $radius: 0.2rem !default;
   --filled-dark: #{darken($clr-neutral-100, 3%)};
 }
 
-:global(.dark) {
+.dark {
   --primary: #{$clr-primary-200};
   --error: #{$clr-warning-200};
   --text: #{$clr-neutral-100};
