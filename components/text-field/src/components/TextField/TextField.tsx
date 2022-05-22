@@ -1,5 +1,7 @@
 import { classNames } from '@infotition/classnames';
 import { IconButton } from '@infotition/icon-button';
+import { Show } from '@infotition/react-control-flow';
+
 import {
   cloneElement,
   ChangeEvent,
@@ -7,16 +9,10 @@ import {
   useId,
   useState,
 } from 'react';
+
 import { EyeIcon } from '../Icons/Eye';
 import { EyeOffIcon } from '../Icons/EyeOff';
-
-import { Show } from './Show';
-
-import styles from './TextField.module.scss';
-
 import { TextFieldProps } from './TextField.types';
-
-console.log(styles);
 
 export const TextField: FunctionComponent<TextFieldProps> = ({
   label,

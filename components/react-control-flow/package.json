@@ -1,7 +1,7 @@
 {
-  "name": "@infotition/text-field",
+  "name": "@infotition/react-control-flow",
   "version": "1.0.0",
-  "description": "Lightweight react text field based on material design 3.",
+  "description": "Lightweight utility react package for easy and reactive control flow.",
   "author": "infotition",
   "license": "MIT",
   "module": "lib/index.js",
@@ -11,7 +11,7 @@
   "keywords": [
     "react-component",
     "react",
-    "text-field",
+    "control-flow",
     "infotition"
   ],
   "scripts": {
@@ -22,11 +22,6 @@
     "build": "tsi build --types --extract",
     "deploy": "tsi publish",
     "docs:dev": "tsi storybook"
-  },
-  "dependencies": {
-    "@infotition/classnames": "*",
-    "@infotition/icon-button": "*",
-    "@infotition/react-control-flow": "*"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -40,8 +35,7 @@
     "husky": "^7.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "typescript": "^4.6.3",
-    "@infotition/design-system": "*"
+    "typescript": "^4.6.3"
   },
   "prettier": "@infotition/prettier-config",
   "eslintConfig": {

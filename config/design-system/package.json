@@ -2,8 +2,11 @@
   "name": "@infotition/design-system",
   "version": "1.0.0",
   "files": [
-    "./colors.scss"
+    "./lib/colors.scss"
   ],
+  "scripts": {
+    "deploy": "tsi publish"
+  },
   "description": "Infotitions design system based on tailwindcss and sass.",
   "license": "MIT",
   "author": "infotition",
