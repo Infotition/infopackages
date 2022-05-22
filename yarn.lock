@@ -2804,10 +2804,10 @@
   resolved "https://registry.yarnpkg.com/@infotition/prettier-config/-/prettier-config-1.0.0.tgz#f9f09c428ecff6876521837086f55ec142eda26a"
   integrity sha512-Xn5auoLTEHNXsK0ruLLFFpwdG7Ek3zgODA0WB365Tdubdk4pF+kJsvzdhu0L59I5+d9SwsSm213V/1HdeOyR0Q==
 
-"@infotition/tsi@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@infotition/tsi/-/tsi-3.3.0.tgz#8be2f196c60225b3b60e9dda089c4a29e4fcde20"
-  integrity sha512-9YDzEyHb6Q/+EOoEgPHDMff9PNszReA4dq1uNkBMOni6uQiCCszlWF0a6mpFOOGS1vtezM0nkW73DzfttJt1Wg==
+"@infotition/tsi@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@infotition/tsi/-/tsi-3.4.0.tgz#82329026dd99b71330cb1056ad52d8e31a0ba5cf"
+  integrity sha512-3YlqmDtw1Hh5Heq9km3t5/Yr8/A479GeeS6fquSqsCIs5MCOoml3B8hp2/+DgBb7di8MfOCFk6SMfyy6s2entA==
   dependencies:
     "@babel/core" "^7.17.9"
     "@babel/parser" "^7.17.9"
@@ -2846,7 +2846,7 @@
     rollup-plugin-terser "^7.0.2"
     rollup-plugin-typescript2 "^0.31.2"
     sade "^1.8.1"
-    sass "^1.51.0"
+    sass "^1.52.1"
     sass-loader "10"
     storybook-addon-sass-postcss "^0.1.1"
     storybook-dark-mode "^1.1.0"

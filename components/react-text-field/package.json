@@ -1,5 +1,5 @@
 {
-  "name": "@infotition/text-field",
+  "name": "@infotition/react-text-field",
   "version": "1.0.0",
   "description": "Lightweight react text field based on material design 3.",
   "author": "infotition",

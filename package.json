@@ -23,7 +23,7 @@
   "devDependencies": {
     "@infotition/eslint-config": "^2.2.0",
     "@infotition/prettier-config": "^1.0.0",
-    "@infotition/tsi": "^3.3.0",
+    "@infotition/tsi": "^3.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "turbo": "latest"
