@@ -24,7 +24,8 @@
     "docs:dev": "tsi storybook"
   },
   "dependencies": {
-    "@infotition/classnames": "*"
+    "@infotition/classnames": "*",
+    "@infotition/design-system": "*"
   },
   "peerDependencies": {
     "react": ">=18",
