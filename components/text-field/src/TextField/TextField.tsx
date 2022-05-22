@@ -72,7 +72,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
     defaultValue: value,
     type: fieldType,
     disabled,
-    readonly,
+    readOnly: readonly,
     required,
     ...((maxLength ?? 0) > 0 && { maxLength }),
   };

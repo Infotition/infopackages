@@ -1,18 +1,34 @@
-$clr-primary: #5927e5 !default;
-$clr-primary-dark: #bda9f5 !default;
-$clr-text: #32324d !default;
-$clr-text-dark: #fff !default;
-$clr-label: #666666 !default;
-$clr-label-dark: #b6babf !default;
-$clr-border: #c4c4c4 !default;
-$clr-border-dark: #434e5b !default;
-$clr-disabled: #b0b0b0 !default;
-$clr-error: #e00061 !default;
+@import './colors.scss';
 
 $radius: 0.2rem !default;
 
-/* GLOBAL STYLES */
+:root {
+  --primary: #{$clr-primary-700};
+  --error: #{$clr-warning-700};
+  --text: #{$clr-neutral-800};
+  --label: #{$clr-neutral-600};
+  --border: #{$clr-neutral-300};
+  --border-dark: #{$clr-neutral-500};
+  --disabled: #{$clr-neutral-200};
+  --disabled-text: #{$clr-neutral-500};
+  --filled: #{$clr-neutral-100};
+  --filled-dark: #{darken($clr-neutral-100, 3%)};
+}
 
+:global(.dark) {
+  --primary: #{$clr-primary-200};
+  --error: #{$clr-warning-200};
+  --text: #{$clr-neutral-100};
+  --label: #{$clr-neutral-400};
+  --border: #{$clr-neutral-700};
+  --border-dark: #{$clr-neutral-600};
+  --disabled: #{$clr-neutral-700};
+  --disabled-text: #{$clr-neutral-400};
+  --filled: #{$clr-neutral-800};
+  --filled-dark: #{lighten($clr-neutral-800, 3%)};
+}
+
+/* GLOBAL STYLES */
 .text-field-container {
   font-family: 'Poppins', sans-serif;
   width: 200px;
@@ -31,21 +47,22 @@ $radius: 0.2rem !default;
 
   input {
     outline: none;
-    color: $clr-text;
+    color: var(--text);
     background: none;
     border: none;
 
     /* If element is focused the label color is primary. */
     &:focus ~ label {
-      color: $clr-primary;
+      color: var(--primary);
     }
   }
 
   label {
     position: absolute;
     left: 1rem;
-    color: $clr-label;
-    transition: bottom 200ms ease, top 200ms ease, left 200ms ease, font-size 200ms ease;
+    color: var(--label);
+    transition: bottom 200ms ease, top 200ms ease, left 200ms ease,
+      font-size 200ms ease;
     pointer-events: none;
     top: 50%;
     transform: translateY(-50%);
@@ -63,7 +80,7 @@ $radius: 0.2rem !default;
   font-size: 0.7rem;
   display: block;
   transition: opacity 100ms ease;
-  color: $clr-label;
+  color: var(--label);
 }
 
 .helper {
@@ -74,17 +91,18 @@ $radius: 0.2rem !default;
   padding: 5px 1rem 0 0;
 }
 
-.right-adornment-item, .left-adornment-item {
+.right-adornment-item,
+.left-adornment-item {
   position: absolute !important;
   top: 50%;
   transform: translateY(-50%);
 
   svg {
-    color: $clr-label !important;
+    color: var(--label) !important;
   }
 
   &:disabled svg {
-    color: $clr-border !important;
+    color: var(--border) !important;
   }
 }
 
@@ -97,10 +115,8 @@ $radius: 0.2rem !default;
 }
 
 /* ADORNMENT STYLES */
-.right-adornment {
-  input {
-    width: calc(100% - 1rem - 15px) !important;
-  }
+.right-adornment input {
+  width: calc(100% - 1rem - 15px) !important;
 }
 
 .left-adornment {
@@ -114,11 +130,9 @@ $radius: 0.2rem !default;
   }
 }
 
-.left-adornment.right-adornment {
-  input {
-    width: calc(100% - 1rem - 15px - 1rem - 15px) !important;
-    margin-left: calc(1rem + 15px);
-  }
+.left-adornment.right-adornment input {
+  width: calc(100% - 1rem - 15px - 1rem - 15px) !important;
+  margin-left: calc(1rem + 15px);
 }
 
 /* FULL WIDTH STYLES */
@@ -138,12 +152,12 @@ $radius: 0.2rem !default;
   /* Only focus animation and don't remove border if written. */
   &.outlined.without-label input {
     &:focus {
-      border: 2px solid $clr-primary !important;
+      border: 2px solid var(--error) !important;
       margin: 0 -1px;
     }
 
     &:not(:placeholder-shown) {
-      border: 1px solid $clr-border;
+      border: 1px solid var(--border);
     }
   }
 
@@ -163,20 +177,20 @@ $radius: 0.2rem !default;
 .disabled {
   .helper,
   .text-field label,
-  .text-field input  {
-    color: $clr-disabled !important;
+  .text-field input {
+    color: var(--disabled-text) !important;
   }
 
   .text-field input:hover ~ fieldset,
   .text-field input:hover:not(:focus):placeholder-shown ~ div {
-    border-color: $clr-border !important;
+    border-color: var(--disabled) !important;
   }
 
   .filled {
-    background-color: #e9e8e8 !important;
+    background-color: var(--disabled) !important;
 
     &::before {
-      border-bottom: 1px dashed $clr-border !important;
+      border-bottom: 1px dashed var(--disabled-text) !important;
     }
   }
 }
@@ -185,7 +199,7 @@ $radius: 0.2rem !default;
 
 .text-field.filled {
   border-radius: $radius;
-  background-color: #f5f5f5;
+  background-color: var(--filled);
   position: relative;
 
   fieldset {
@@ -193,7 +207,7 @@ $radius: 0.2rem !default;
   }
 
   &:hover {
-    background-color: darken(#f5f5f5, 2%);
+    background-color: var(--filled-dark);
   }
 
   &::before,
@@ -206,11 +220,11 @@ $radius: 0.2rem !default;
   }
 
   &::before {
-    border-bottom: 1px solid $clr-border;
+    border-bottom: 1px solid var(--border);
   }
 
   &::after {
-    border-bottom: 2px solid $clr-primary;
+    border-bottom: 2px solid var(--primary);
     transform: scaleX(0);
     transition: transform 150ms ease;
   }
@@ -254,7 +268,7 @@ $radius: 0.2rem !default;
   div {
     width: 100%;
     height: 100%;
-    border: 1px solid $clr-border;
+    border: 1px solid var(--border);
     border-radius: $radius;
   }
 
@@ -275,17 +289,17 @@ $radius: 0.2rem !default;
 
     /* If element is focused the border color is primary. */
     &:focus ~ fieldset {
-      border: 2px solid $clr-primary;
+      border: 2px solid var(--primary);
     }
 
     /* If element is not focused and text is written, enable fieldset border. */
     &:not(:focus):not(:placeholder-shown) ~ fieldset {
-      border: 1px solid $clr-border;
+      border: 1px solid var(--border);
     }
 
     /* If element is not focused and text is written but was hover, darken the border. */
     &:hover:not(:focus):not(:placeholder-shown) ~ fieldset {
-      border: 1px solid darken($clr-border, 25%);
+      border: 1px solid var(--border-dark);
     }
 
     /* If input is focused or text was written, switch to fieldset border. */
@@ -296,7 +310,7 @@ $radius: 0.2rem !default;
 
     /* If input hovered while not focus without text, darken its color. */
     &:hover:not(:focus):placeholder-shown ~ div {
-      border: 1px solid darken($clr-border, 25%);
+      border: 1px solid var(--border-dark);
     }
   }
 }
@@ -305,12 +319,8 @@ $radius: 0.2rem !default;
 
 .error {
   .text-field.outlined input {
-    ~ div {
-      border: 1px solid $clr-error;
-    }
-
     &:focus ~ fieldset {
-      border: 2px solid $clr-error;
+      border: 2px solid var(--error);
     }
 
     &:focus ~ div,
@@ -318,56 +328,21 @@ $radius: 0.2rem !default;
       border: none;
     }
 
+    ~ div,
     &:not(:focus):not(:placeholder-shown) ~ fieldset,
     &:hover:not(:focus):not(:placeholder-shown) ~ fieldset,
     &:hover:not(:focus):placeholder-shown ~ div {
-      border: 1px solid $clr-error;
+      border: 1px solid var(--error);
     }
   }
 
   .text-field.filled::after {
-    border-bottom: 2px solid $clr-error;
+    border-bottom: 2px solid var(--error);
     transform: scaleX(1);
   }
 
-  .text-field label {
-    color: $clr-error !important;
-  }
-
+  .text-field label,
   .below * {
-    color: $clr-error;
-  }
-}
-
-/* THEME OVERRIDES */
-
-:global(.dark) .text-field {
-  input {
-    color: $clr-text-dark;
-    border: 1px solid $clr-border-dark;
-
-    &:focus ~ label {
-      color: $clr-primary-dark;
-    }
-
-    &:focus ~ fieldset {
-      border: 2px solid $clr-primary-dark;
-    }
-
-    &:not(:focus):not(:placeholder-shown) ~ fieldset {
-      border: 1px solid $clr-border-dark;
-    }
-
-    &:hover:not(:focus):not(:placeholder-shown) ~ fieldset {
-      border: 1px solid lighten($clr-border-dark, 50%);
-    }
-
-    &:hover:not(:focus):placeholder-shown {
-      border: 1px solid lighten($clr-border-dark, 50%);
-    }
-  }
-
-  label {
-    color: $clr-label-dark;
+    color: var(--error) !important;
   }
 }
