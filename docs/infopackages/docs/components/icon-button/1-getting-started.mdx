@@ -1,0 +1,125 @@
+---
+id: iconbutton-getting-started
+title: Getting started
+description: 'Quick introduction of how to use the component.'
+sidebar_position: 1
+---
+
+import { IconButton } from '@site/../../components/icon-button/src';
+import { useState } from 'react'
+const eye = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+  >
+    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+    <path
+      fillRule="evenodd"
+      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+
+# Getting started
+
+React component representing an custom element with editable contents.
+
+## Quick started
+
+### Basic Icon Button
+
+The simplest `IconButton` component renders a icon button based on the material design 3 guidelines.
+
+<IconButton icon={eye} /><br /><br />
+
+```tsx
+import { IconButton } from '@infotition/icon-button';
+
+const Button: FunctionComponent = () => {
+  return <IconButton icon={eye} />;
+}
+
+export default Button;
+```
+
+### Handling clicks
+
+export const ClickDemo = () => {
+  const [count, setCount] = useState(0);
+  const handleClick = () => {
+    setCount(count + 1);
+  }
+  return (
+    <div style={{display: "flex", alignItems: "center"}}>
+      <IconButton icon={eye} onClick={handleClick} />
+      <span>Clicks: {count}</span>
+    </div>
+  );
+}
+
+The `IconButton` accepts an `onClick` handler which gets called after button is clicked (only if the button is not disabled).
+
+<ClickDemo /><br />
+
+```tsx
+import { IconButton } from '@infotition/icon-button';
+
+const Button: FunctionComponent = () => {
+  const handleClick = () => {
+    console.log("click");
+  }
+
+  return <IconButton icon={eye} onClick={handleClick} />;
+}
+
+export default Button;
+```
+
+### Disabled
+
+The `IconButton` can be disabled. This disables all click actions and animations.
+
+<IconButton icon={eye} disabled /><br /><br />
+
+```tsx
+import { IconButton } from '@infotition/icon-button';
+
+const Button: FunctionComponent = () => {
+  return <IconButton icon={eye} disabled />;
+}
+
+export default Button;
+```
+
+### Size
+
+The `IconButton` comes in three different sizes (small, medium, large). Medium is the default size.
+
+<IconButton icon={eye} size="large" /><br /><br />
+
+```tsx
+import { IconButton } from '@infotition/icon-button';
+
+const Button: FunctionComponent = () => {
+  return <IconButton icon={eye} size="large" />;
+}
+
+export default Button;
+```
+
+## Installation
+
+```bash
+npm install @infotition/icon-button
+```
+
+Or:
+
+```bash
+yarn add @infotition/icon-button
+```
+
+If you want the default styling to be enabled, you must import the css / scss file first.
+

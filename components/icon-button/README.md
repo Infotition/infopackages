@@ -6,15 +6,15 @@
     <img src="https://raw.githubusercontent.com/Infotition/infopackages/main/.github/assets/logo.png" width="80" alt="infotition logo" />
   </a>
 
-  <h3 align="center">Infotition's text field component</h3>
+  <h3 align="center">Infotition's icon button component</h3>
 
   <p align="center">
-    Lightweight react text field based on material design 3.
+   Lightweight react icon button based on material design 3.
     <br />
-    <a href="https://infotition.github.io/infopackages/#/text-field/index"><strong>Explore the docs »</strong></a>
+    <a href="https://infotition.github.io/infopackages/#/icon-button/index"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.npmjs.com/package/@infotition/text-field">View Package</a>
+    <a href="https://www.npmjs.com/package/@infotition/icon-button">View Package</a>
     ·
     <a href="https://github.com/Infotition/infopackages/issues/new?template=feature_request.md">Report Bug</a>
     ·
@@ -22,8 +22,8 @@
   </p>
 
   <p align="center">
-    <a href="https://www.npmjs.com/package/@infotition/text-field" title="package size">
-			<img src="https://img.shields.io/bundlephobia/minzip/@infotition/text-field?style=for-the-badge" alt="package size" />
+    <a href="https://www.npmjs.com/package/@infotition/icon-button" title="package size">
+			<img src="https://img.shields.io/bundlephobia/minzip/@infotition/icon-button?style=for-the-badge" alt="package size" />
 		</a>
     <a href="https://github.com/Infotition/infopackages/actions/workflows/ci.yaml" title="workflow">
 			<img src="https://img.shields.io/github/workflow/status/Infotition/infopackages/CI?style=for-the-badge" alt="workflow" />
@@ -49,12 +49,24 @@
 
 # Getting started
 
+The react icon button component takes various props to render a icon button based on the material design 3 guidelines. 
 
+```tsx
+import { IconButton } from '@infotition/icon-button';
+
+const Button: FunctionComponent = () => {
+  return <IconButton icon="🧩" onClick={() => console.log("clicked")} />
+}
+
+export default Button;
+```
+
+For live demo, more information about props, customization and other useful information, please visit the official [docs](https://infotition.github.io/infopackages/category/icon-button).
 
 ## Installation
 
 ```bash
-yarn add @infotition/text-field
+yarn add @infotition/icon-button
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -75,7 +87,7 @@ Now install all the (development) dependencies. We prefer [yarn](https://yarnpkg
 yarn install
 ```
 
-At this point everything ist installed. Now change your directory to the classname utility.
+At this point everything ist installed. Now change your directory to the icon button component.
 
 ```bash
 cd infopackages/packages/classnames

@@ -8,9 +8,10 @@
   --disabled: #{$clr-neutral-300};
 }
 
-.dark {
+.dark,
+[data-theme='dark'] {
   --hover: #{rgba($clr-neutral-700, 0.4)};
-  --ripple: #{darken($clr-neutral-700, 15%)};
+  --ripple: #{darken($clr-neutral-700, 18%)};
   --text: #{$clr-neutral-400};
   --disabled: #{$clr-neutral-700};
 }
@@ -75,6 +76,8 @@
 }
 
 .animate:after {
+  animation: ripple 500ms ease;
+
   :local {
     animation: ripple 500ms ease;
   }

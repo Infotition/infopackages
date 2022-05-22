@@ -28,7 +28,10 @@ const config = {
           editUrl: 'https://github.com/Infotition/infopackages',
         },
         theme: {
-          customCss: require.resolve('./static/css/custom.css'),
+          customCss: [
+            require.resolve('./static/css/custom.css'),
+            require.resolve('./static/css/main.scss'),
+          ],
         },
       },
     ],
