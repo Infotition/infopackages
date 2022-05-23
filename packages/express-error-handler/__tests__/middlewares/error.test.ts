@@ -94,7 +94,7 @@ describe('Error middlewares', () => {
       const res = createResponse();
       const sendSpy = jest.spyOn(res, 'send');
 
-      errorHandler(error, logger, res);
+      errorHandler(error, res, logger);
 
       expect(sendSpy).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -111,7 +111,7 @@ describe('Error middlewares', () => {
       const res = createResponse();
       const sendSpy = jest.spyOn(res, 'send');
 
-      errorHandler(error, logger, res);
+      errorHandler(error, res, logger);
 
       expect(sendSpy).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -128,7 +128,7 @@ describe('Error middlewares', () => {
       const res = createResponse();
       const sendSpy = jest.spyOn(res, 'send');
 
-      errorHandler(error, logger, res);
+      errorHandler(error, res, logger);
 
       expect(sendSpy).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -145,7 +145,7 @@ describe('Error middlewares', () => {
       const res = createResponse();
       const sendSpy = jest.spyOn(res, 'send');
 
-      errorHandler(error, logger, res);
+      errorHandler(error, res, logger);
 
       expect(sendSpy).toHaveBeenCalledWith(
         expect.objectContaining({
