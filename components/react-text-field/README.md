@@ -11,7 +11,7 @@
   <p align="center">
     Lightweight react text field based on material design 3.
     <br />
-    <a href="https://infotition.github.io/infopackages/#/text-field/index"><strong>Explore the docs »</strong></a>
+    <a href="https://infotition.github.io/infopackages/category/react-text-field"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://www.npmjs.com/package/@infotition/text-field">View Package</a>
@@ -49,12 +49,22 @@
 
 # Getting started
 
+The simplest `TextField` component renders a plain input element.. It comes in two different
+variants: `outlined` (default) and `filled`. Both variants can be combined with other props.
 
+```tsx
+<TextField variant="outlined" label="Outlined" helper="I'm helpful" />
+<TextField variant="filled" label="Filled" helper="I'm helpful" />
+```
+
+For more props please visit the official [docs](https://infotition.github.io/infopackages/category/react-text-field).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Installation
 
 ```bash
-yarn add @infotition/text-field
+yarn add @infotition/react-text-field
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
