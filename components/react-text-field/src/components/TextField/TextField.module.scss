@@ -15,7 +15,8 @@ $radius: 0.2rem !default;
   --filled-dark: #{darken($clr-neutral-100, 3%)};
 }
 
-.dark {
+.dark,
+[data-theme='dark'] {
   --primary: #{$clr-primary-200};
   --error: #{$clr-warning-200};
   --text: #{$clr-neutral-100};

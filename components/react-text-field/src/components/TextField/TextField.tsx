@@ -14,6 +14,9 @@ import { EyeIcon } from '../Icons/Eye';
 import { EyeOffIcon } from '../Icons/EyeOff';
 import { TextFieldProps } from './TextField.types';
 
+/**
+ * Lightweight react text field based on material design 3.
+ */
 export const TextField: FunctionComponent<TextFieldProps> = ({
   label,
   helper,

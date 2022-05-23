@@ -1,0 +1,209 @@
+---
+id: textfield-getting-started
+title: Getting started
+description: 'Quick introduction of how to use the component.'
+sidebar_position: 1
+---
+
+import { TextField } from '@site/../../components/react-text-field/src';
+import { useState, useRef } from 'react';
+const mail = (
+  <span style={{width: 25, height: 25}}>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>
+  </span>
+);
+const eye = (
+  <span style={{width: 25, height: 25}}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+      <path
+        fillRule="evenodd"
+        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </span>
+);
+
+# Getting started
+
+Lightweight react text field based on material design 3.
+
+## Quick started
+
+### Basic Icon Button
+
+The simplest `TextField` component renders a plain input element.. It comes in two different
+variants: `outlined` (default) and `filled`. Both variants can be combined with other props.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <TextField variant="outlined" />
+  <TextField variant="filled" />
+</div>
+<br />
+
+```tsx
+<TextField variant="outlined" />
+<TextField variant="filled" />
+```
+
+### Labeling
+
+The `TextField` can be equiped with a `label` or/and an `helper` text below the field. If the label is not
+provided, but an helper text ist, the helper is only visible if the input field is focused.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <TextField variant="outlined" label="Outlined" helper="I'm helpful" />
+  <TextField variant="filled" label="Filled" helper="I'm helpful" />
+</div><br /><br />
+<div style={{ display: "flex", gap: "30px" }}>
+  <TextField variant="outlined" helper="I'm helpful" />
+  <TextField variant="filled" helper="I'm helpful" />
+</div><br />
+
+```tsx
+<TextField variant="outlined" label="Outlined" helper="I'm helpful" />
+<TextField variant="filled" label="Filled" helper="I'm helpful" />
+```
+
+### Form props
+
+The standard form attributes are supported e.g. `required`, `disabled`, `type`, etc. If the type
+is set to `password`, an password toggle icon button is added automatically.
+
+<div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
+  <TextField variant="outlined" label="Outlined" required/>
+  <TextField variant="filled" label="Filled" required />
+</div><br />
+<div style={{ display: "flex", gap: "30px" }}>
+  <TextField variant="outlined" label="Outlined" disabled/>
+  <TextField variant="filled" label="Filled" disabled />
+</div><br />
+<div style={{ display: "flex", gap: "30px" }}>
+  <TextField variant="outlined" label="Outlined" type="password" />
+  <TextField variant="filled" label="Filled" type="password" />
+</div><br />
+
+```tsx
+<TextField variant="outlined" label="Outlined" required/>
+<TextField variant="outlined" label="Outlined" disabled/>
+<TextField variant="outlined" label="Outlined" type="password" />
+```
+
+### Full width
+
+`full` can be used to make the input take up the full width of its parent container.
+
+<TextField variant="filled" label="Filled" full /><br />
+
+```tsx
+<TextField variant="filled" label="Filled" full />
+```
+
+### Validation
+
+The `error` prop toggels the error state. It renders at the same position as the helper text. If
+a helper is defined, the error state overrides it.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <TextField variant="outlined" label="Error" error="Incorrect entry." />
+  <TextField variant="filled" label="Error" error="Incorrect entry." />
+</div><br /><br />
+
+```tsx
+<TextField variant="outlined" label="Error" error="Incorrect entry." />
+```
+
+### Input Adornments
+
+There are multiple ways to display an icon with a text field. You can add an adornment to the beginning
+or end of the input field.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <TextField variant="outlined" label="Password" rightAdornment={eye} />
+  <TextField variant="outlined" label="Mail" leftAdornment={mail} />
+  <TextField variant="outlined" label="Both" leftAdornment={mail} rightAdornment={eye} />
+</div><br />
+
+```tsx
+<TextField variant="outlined" label="Password" rightAdornment={eye} />
+<TextField variant="outlined" label="Mail" leftAdornment={mail} />
+<TextField variant="outlined" label="Both" leftAdornment={mail} rightAdornment={eye} />
+```
+
+### Controlled field
+
+The component also can be controlled. Keep in mind that by default, the element doesn't get rerendered
+after every key stroke. If you bind the `value` prop to a state which changes on every `onChange` event,
+this is the case. Most of the times it is better to use a `ref` instead of the state to keep track of the value,
+because most of the time you only need it for every user interaction e.g. button click instead of constant
+rerendering.
+
+export const ControlledDemo = () => {
+  const renders = useRef(0);
+  const [value, setValue] = useState("Hello World");
+  const handleChange = (value) => {
+    setValue(value);
+    renders.current += 1;
+  }
+  return (
+    <div>
+      <TextField label="Controlled" value={value} onChange={handleChange} />
+      <span>Rerenders: {renders.current}</span>
+    </div>
+  );
+}
+
+export const UncontrolledDemo = () => {
+  const renders = useRef(0);
+  return (
+    <div>
+      <TextField label="Uncontrolled" value="Hello world" />
+      <span>Rerenders: {renders.current}</span>
+    </div>
+  );
+}
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <UncontrolledDemo />
+  <ControlledDemo />
+</div><br />
+
+```tsx
+const [value, setValue] = useState("Hello World");
+const handleChange = (value) => setValue(value);
+
+<TextField label="Controlled" value={value} onChange={handleChange} />
+```
+
+### Input constraints
+
+The `maxLength` attribute can be used to display the max input length. Keep in mind,
+that this causes rerenders on every typing.
+
+<TextField label="Max Length" helper="Length constraints" maxLength={10} /><br /><br />
+
+```tsx
+<TextField label="Max Length" helper="Length constraints" maxLength={10} />
+```
+
+## Installation
+
+```bash
+npm install @infotition/react-text-field
+```
+
+Or:
+
+```bash
+yarn add @infotition/react-text-field
+```
+
+If you want the default styling to be enabled, you must import the css / scss file first.
+
