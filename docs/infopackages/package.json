@@ -17,7 +17,8 @@
     "raw-loader": "^4.0.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "@infotition/design-system": "*"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-beta.20",

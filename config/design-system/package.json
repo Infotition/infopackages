@@ -2,7 +2,8 @@
   "name": "@infotition/design-system",
   "version": "1.0.0",
   "files": [
-    "./lib/colors.scss"
+    "./lib/colors.scss",
+    "./lib/utility.scss"
   ],
   "scripts": {
     "deploy": "tsi publish",
