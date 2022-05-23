@@ -3,8 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { TextField } from '../components/TextField/TextField';
 import styles from './index.module.scss';
 
-import '@infotition/icon-button/lib/icon-button.min.css';
-
 export default {
   title: 'TextField',
   component: TextField,

@@ -4,6 +4,7 @@
   "description": "Lightweight utility react package for easy and reactive control flow.",
   "author": "infotition",
   "license": "MIT",
+  "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
@@ -19,7 +20,7 @@
     "test": "tsi test",
     "lint": "tsi lint",
     "clean": "tsi clean",
-    "build": "tsi build --types --extract",
+    "build": "tsi build --types --extract --format cjs",
     "deploy": "tsi publish",
     "docs:dev": "tsi storybook"
   },

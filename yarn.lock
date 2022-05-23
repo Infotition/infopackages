@@ -2804,10 +2804,10 @@
   resolved "https://registry.yarnpkg.com/@infotition/prettier-config/-/prettier-config-1.0.0.tgz#f9f09c428ecff6876521837086f55ec142eda26a"
   integrity sha512-Xn5auoLTEHNXsK0ruLLFFpwdG7Ek3zgODA0WB365Tdubdk4pF+kJsvzdhu0L59I5+d9SwsSm213V/1HdeOyR0Q==
 
-"@infotition/tsi@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@infotition/tsi/-/tsi-3.4.0.tgz#82329026dd99b71330cb1056ad52d8e31a0ba5cf"
-  integrity sha512-3YlqmDtw1Hh5Heq9km3t5/Yr8/A479GeeS6fquSqsCIs5MCOoml3B8hp2/+DgBb7di8MfOCFk6SMfyy6s2entA==
+"@infotition/tsi@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@infotition/tsi/-/tsi-3.5.0.tgz#b64e33b869614e5af646b71db9960f7fad0aa4a7"
+  integrity sha512-/Qcvn6oVU+Cz/ub/5sIRIl1vyyDgtYUk0q7BMWDvUAfoCzAbqCiTpARr73QufIrpvk5Yx0T92RX+6B/AM9t0Lg==
   dependencies:
     "@babel/core" "^7.17.9"
     "@babel/parser" "^7.17.9"

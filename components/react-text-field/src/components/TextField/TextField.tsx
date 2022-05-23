@@ -1,6 +1,6 @@
 import { classNames } from '@infotition/classnames';
-import { IconButton } from '@infotition/icon-button';
 import { Show } from '@infotition/react-control-flow';
+import { IconButton } from '@infotition/react-icon-button';
 
 import {
   cloneElement,
@@ -47,7 +47,13 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
   if (required && label) label = `${label} *`;
   if (type == 'password') {
     const icon = fieldType === 'password' ? EyeIcon : EyeOffIcon;
-    rightAdornment = <IconButton icon={icon} onClick={toggleFieldVisibility} />;
+    rightAdornment = (
+      <IconButton
+        icon={icon}
+        onClick={toggleFieldVisibility}
+        ariaLabel={fieldType === 'password' ? 'show password' : 'hide password'}
+      />
+    );
   }
 
   const containerClasses = classNames(
@@ -78,8 +84,8 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
   };
 
   return (
-    <div className={containerClasses}>
-      <div className={textFieldClasses}>
+    <div className={containerClasses} data-testid="text-field-container">
+      <div className={textFieldClasses} data-testid="text-field">
         {leftAdornment &&
           cloneElement(leftAdornment, {
             className: 'left-adornment-item',
@@ -105,7 +111,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
           })}
       </div>
 
-      <div className="below">
+      <div className="below" data-testid="text-field-below">
         <Show when={helper || error}>
           <span className="helper">{error ? error : helper}</span>
         </Show>

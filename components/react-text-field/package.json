@@ -19,13 +19,13 @@
     "test": "tsi test",
     "lint": "tsi lint",
     "clean": "tsi clean",
-    "build": "tsi build --types --extract",
+    "build": "tsi build --types --extract --format cjs",
     "deploy": "tsi publish",
     "docs:dev": "tsi storybook"
   },
   "dependencies": {
     "@infotition/classnames": "*",
-    "@infotition/icon-button": "*",
+    "@infotition/react-icon-button": "*",
     "@infotition/react-control-flow": "*"
   },
   "peerDependencies": {

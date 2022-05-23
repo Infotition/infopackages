@@ -150,15 +150,13 @@ $radius: 0.2rem !default;
   }
 
   /* Only focus animation and don't remove border if written. */
-  &.outlined.without-label input {
-    &:focus {
-      border: 2px solid var(--error) !important;
-      margin: 0 -1px;
-    }
+  &.outlined.without-label input:focus ~ div {
+    border: 2px solid var(--primary) !important;
+    margin: 0 -1px;
+  }
 
-    &:not(:placeholder-shown) {
-      border: 1px solid var(--border);
-    }
+  &.outlined.without-label input:not(:placeholder-shown) ~ div {
+    border: 1px solid var(--border);
   }
 
   /* If label is missing, also hide the helper text. */
