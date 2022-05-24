@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export type ButtonProps = {
   /** The label of the button. */
   label: string;
@@ -23,4 +25,8 @@ export type ButtonProps = {
   loadingPosition?: 'start' | 'end';
   /** The loading indicator to override the default spinner. */
   loadingIndicator?: string;
+  /** The icon at the start of the button. */
+  startIcon?: ReactElement;
+  /** The icon at the end of the button. */
+  endIcon?: ReactElement;
 };

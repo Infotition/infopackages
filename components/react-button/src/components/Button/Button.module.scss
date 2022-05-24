@@ -73,7 +73,7 @@ $radius: 4px !default;
   font-weight: 500;
   position: relative;
   overflow: hidden;
-  transition: background-color 250ms ease, box-shadow 250ms ease, border-color 250ms ease, min-width 250ms ease;
+  transition: background-color 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
   box-sizing: border-box;
   outline: none;
   display: flex;
@@ -213,6 +213,10 @@ $radius: 4px !default;
   border-top: 2px solid var(--disabled-text);
 }
 
+.contained .spinner {
+  border-top: 2px solid var(--text);
+}
+
 
 @keyframes rotation{
   from{
@@ -221,4 +225,9 @@ $radius: 4px !default;
   to{
     transform: rotate(360deg);
   }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
 }

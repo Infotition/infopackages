@@ -18,6 +18,8 @@ export const Button: FunctionComponent<ButtonProps> = ({
   loading = false,
   className,
   onClick,
+  startIcon,
+  endIcon,
 }) => {
   const button = useRef<HTMLButtonElement>(null);
 
@@ -38,6 +40,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   );
 
   const buttonProps = {
+    'aria-busy': loading,
     onClick: handleClick,
     className: buttonClasses,
     tabindex: 0,
@@ -48,15 +51,27 @@ export const Button: FunctionComponent<ButtonProps> = ({
 
   return (
     <button ref={button} {...buttonProps}>
-      <Show when={!loadingIndicator && loading && loadingPosition != 'end'}>
-        <div className="spinner" />
+      <Show when={!loadingIndicator && loading && loadingPosition !== 'end'}>
+        <div className="spinner" aria-hidden />
+      </Show>
+
+      <Show when={startIcon}>
+        <div className="icon">{startIcon}</div>
+      </Show>
+
+      <Show when={loading}>
+        <>{loadingIndicator}</>
       </Show>
 
       <Show when={!loading || (loading && loadingPosition)}>
-        <>{loading && loadingIndicator ? loadingIndicator : label}</>
+        <>{label}</>
       </Show>
 
-      <Show when={!loadingIndicator && loading && loadingPosition == 'end'}>
+      <Show when={endIcon}>
+        <div className="icon">{endIcon}</div>
+      </Show>
+
+      <Show when={!loadingIndicator && loading && loadingPosition === 'end'}>
         <div className="spinner" />
       </Show>
     </button>
