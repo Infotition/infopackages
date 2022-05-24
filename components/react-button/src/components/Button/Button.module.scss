@@ -1,0 +1,189 @@
+@import '@infotition/design-system/lib/colors.scss';
+
+$radius: 4px !default;
+
+:root {
+  --primary: #{$clr-primary-700};
+  --border: #{$clr-primary-500};
+  --border-hover: #{$clr-primary-700};
+  --hover-contained: #{darken($clr-primary-700, 5%)};
+  --hover-other: #{rgba($clr-primary-500, 5%)};
+  --text: #{$clr-neutral-0};
+  --ripple-contained: #{rgba($clr-neutral-0, 30%)};
+  --ripple-other: #{rgba($clr-primary-700, 25%)};
+  --disabled-background: #{$clr-neutral-200};
+  --disabled-text: #{$clr-neutral-500};
+
+  .secondary {
+    --primary: #{$clr-secondary-700};
+    --hover-contained: #{darken($clr-secondary-700, 5%)};
+    --border: #{$clr-secondary-500};
+    --border-hover: #{$clr-secondary-700};
+    --ripple-other: #{rgba($clr-secondary-700, 25%)};
+  }
+
+  .success {
+    --primary: #{$clr-success-700};
+    --hover-contained: #{darken($clr-success-700, 5%)};
+    --border: #{$clr-success-500};
+    --border-hover: #{$clr-success-700};
+    --ripple-other: #{rgba($clr-success-700, 25%)};
+  }
+
+  .error {
+    --primary: #{$clr-error-700};
+    --hover-contained: #{darken($clr-error-700, 5%)};
+    --border: #{$clr-error-500};
+    --border-hover: #{$clr-error-700};
+    --ripple-other: #{rgba($clr-error-700, 25%)};
+  }
+}
+
+.dark, [data-theme='dark'] {
+  --primary: #{$clr-primary-200};
+  --border: #{$clr-primary-200};
+  --border-hover: #{$clr-primary-500};
+  --hover-contained: #{darken($clr-primary-200, 10%)};
+  --hover-other: #{rgba($clr-primary-200, 5%)};
+  --text: #{$clr-neutral-800};
+  --ripple-contained: #{rgba($clr-neutral-700, 30%)};
+  --ripple-other: #{rgba($clr-primary-500, 25%)};
+  --disabled-background: #{$clr-neutral-700};
+  --disabled-text: #{$clr-neutral-400};
+
+  .error {
+    --primary: #{$clr-error-500};
+    --hover-contained: #{darken($clr-error-500, 5%)};
+    --border: #{$clr-error-200};
+    --border-hover: #{$clr-error-500};
+    --ripple-other: #{rgba($clr-error-500, 25%)};
+  }
+}
+
+.btn {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: $radius;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  box-sizing: border-box;
+  outline: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    border-radius: 40%;
+    width: 0%;
+    height: 200%;
+    background-color: var(--ripple-contained);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:focus:not(.disabled):not(:active)::after {
+    animation: focus-beat 2s ease infinite;
+
+    :local {
+      animation: focus-beat 2s ease infinite;
+    }
+  }
+}
+
+@keyframes focus-beat {
+  0% { width: 85%; }
+  50% { width: 90%; }
+  100% { width: 85%; }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.disabled {
+  cursor: default;
+  font-weight: 400;
+}
+
+.contained {
+  background-color: var(--primary);
+  color: var(--text);
+
+  .btn-ripple {
+    background-color: var(--ripple-contained);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-background);
+    color: var(--disabled-text);
+  }
+
+  &:hover:not(.disabled) {
+    background-color: var(--hover-contained);
+  }
+
+  &.elevation:not(.disabled) {
+    box-shadow: 0px 3px 1px -2px rgba($clr-neutral-900, 20%), 0px 2px 2px 0px rgba($clr-neutral-900, 14%), 0px 1px 5px 0px rgba($clr-neutral-900, 12%);
+  }
+
+  &:hover.elevation:not(.disabled) {
+    box-shadow: 0px 2px 4px -1px rgba($clr-neutral-900, 20%), 0px 4px 5px 0px rgba($clr-neutral-900, 14%), 0px 1px 10px 0px rgba($clr-neutral-900, 12%);
+  }
+
+  &:active.elevation:not(.disabled) {
+    box-shadow: 0px 5px 5px -3px rgba($clr-neutral-900, 20%), 0px 8px 10px 1px rgba($clr-neutral-900, 14%), 0px 3px 14px 2px rgba($clr-neutral-900, 12%);
+  }
+}
+
+.text, .outlined {
+  background-color: transparent;
+  color: var(--primary);
+
+  &.disabled {
+    color: var(--disabled-text);
+  }
+
+  .btn-ripple {
+    background-color: var(--ripple-other);
+  }
+}
+
+.outlined {
+  border: 1px solid var(--border);
+
+  &.disabled {
+    border-color: var(--disabled-background);
+  }
+
+  &:hover:not(.disabled) {
+    border-color: var(--border-hover);
+    background-color: var(--hover-other);
+  }
+}
+
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: btn-ripple 500ms cubic-bezier(.25,.1,.25,1);
+
+  :local {
+    animation: btn-ripple 500ms cubic-bezier(.25,.1,.25,1);
+  }
+}
+
+@keyframes btn-ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
