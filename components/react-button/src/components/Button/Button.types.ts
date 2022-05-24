@@ -1,4 +1,6 @@
 export type ButtonProps = {
+  /** The label of the button. */
+  label: string;
   /** Styling variant of the button. */
   variant?: 'contained' | 'outlined' | 'text';
   /** The type of the button. */
@@ -15,4 +17,10 @@ export type ButtonProps = {
   color?: 'primary' | 'secondary' | 'success' | 'error';
   /** Whether the button should be full with. */
   full?: boolean;
+  /** Whether the button should render a loading state. */
+  loading?: boolean;
+  /** The position of the loading spinner. */
+  loadingPosition?: 'start' | 'end';
+  /** The loading indicator to override the default spinner. */
+  loadingIndicator?: string;
 };

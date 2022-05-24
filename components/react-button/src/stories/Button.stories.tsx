@@ -32,6 +32,7 @@ const Template: ComponentStory<typeof Button> = (args) => {
 
 export const Simple = Template.bind({});
 Simple.args = {
+  label: 'OUTLINED',
   type: 'button',
   variant: 'contained',
 };

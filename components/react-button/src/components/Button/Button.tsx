@@ -1,16 +1,21 @@
 import { classNames } from '@infotition/classnames';
+import { Show } from '@infotition/react-control-flow';
 import { FunctionComponent, useRef } from 'react';
 
 import { createClickAnimation } from '../../utils/createRippleAnimation';
 import { ButtonProps } from './Button.types';
 
 export const Button: FunctionComponent<ButtonProps> = ({
+  label,
   type = 'button',
   variant = 'contained',
   color = 'primary',
+  loadingPosition,
+  loadingIndicator,
   disableElevation = false,
   disabled = false,
   full = false,
+  loading = false,
   className,
   onClick,
 }) => {
@@ -43,7 +48,17 @@ export const Button: FunctionComponent<ButtonProps> = ({
 
   return (
     <button ref={button} {...buttonProps}>
-      CONTAINED
+      <Show when={!loadingIndicator && loading && loadingPosition != 'end'}>
+        <div className="spinner" />
+      </Show>
+
+      <Show when={!loading || (loading && loadingPosition)}>
+        <>{loading && loadingIndicator ? loadingIndicator : label}</>
+      </Show>
+
+      <Show when={!loadingIndicator && loading && loadingPosition == 'end'}>
+        <div className="spinner" />
+      </Show>
     </button>
   );
 };

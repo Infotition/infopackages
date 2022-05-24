@@ -73,9 +73,13 @@ $radius: 4px !default;
   font-weight: 500;
   position: relative;
   overflow: hidden;
-  transition: background-color 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  transition: background-color 250ms ease, box-shadow 250ms ease, border-color 250ms ease, min-width 250ms ease;
   box-sizing: border-box;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
   &::after {
     content: '';
@@ -152,6 +156,10 @@ $radius: 4px !default;
     color: var(--disabled-text);
   }
 
+  &:hover:not(.disabled) {
+    background-color: var(--hover-other);
+  }
+
   .btn-ripple {
     background-color: var(--ripple-other);
   }
@@ -166,7 +174,6 @@ $radius: 4px !default;
 
   &:hover:not(.disabled) {
     border-color: var(--border-hover);
-    background-color: var(--hover-other);
   }
 }
 
@@ -185,5 +192,33 @@ $radius: 4px !default;
   to {
     transform: scale(4);
     opacity: 0;
+  }
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border-top: 2px solid var(--primary);
+  border-right: 2px solid transparent;
+  border-radius: 50%;
+
+  :local {
+    animation: rotation .8s linear infinite;
+  }
+
+  animation: rotation .8s linear infinite;
+}
+
+.disabled .spinner {
+  border-top: 2px solid var(--disabled-text);
+}
+
+
+@keyframes rotation{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
   }
 }
