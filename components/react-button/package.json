@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "@infotition/classnames": "*",
-    "@infotition/react-control-flow": "*"
+    "@infotition/react-control-flow": "*",
+    "@infotition/create-splash-animation": "*"
   },
   "peerDependencies": {
     "react": ">=18",

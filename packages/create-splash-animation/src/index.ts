@@ -1,0 +1,1 @@
+export { createSplashAnimation } from './createSplashAnimation';

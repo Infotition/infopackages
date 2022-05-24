@@ -2,13 +2,10 @@
  * Appends at the clicked position an adds the provided class to play
  * the configured animation.
  *
- * @param event             The fired click event.
- * @param rippleClass       The class which should play the animation.
+ * @param event         The fired click event.
+ * @param splashClass   The class which should play the animation.
  */
-export const createClickAnimation = (
-  event: React.MouseEvent,
-  rippleClass: string,
-) => {
+export const createSplashAnimation = (event: any, splashClass: string) => {
   const target = event.currentTarget;
   const targetRect = target.getBoundingClientRect();
 
@@ -23,11 +20,16 @@ export const createClickAnimation = (
   circle.style.left = `${event.clientX - targetRect.left - radius}px`;
   circle.style.top = `${event.clientY - targetRect.top - radius}px`;
 
+  // Add default styles
+  circle.style.position = 'absolute';
+  circle.style.borderRadius = '50%';
+  circle.style.transform = 'scale(0)';
+
   // Play the animation
-  circle.classList.add(rippleClass);
+  circle.classList.add(splashClass);
 
   // If an old ripple is animating / was animated, delete the span
-  const ripple = target.getElementsByClassName(rippleClass)[0];
+  const ripple = target.getElementsByClassName(splashClass)[0];
   if (ripple) ripple.remove();
 
   target.appendChild(circle);

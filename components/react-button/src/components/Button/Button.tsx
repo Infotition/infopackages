@@ -1,8 +1,8 @@
 import { classNames } from '@infotition/classnames';
+import { createSplashAnimation } from '@infotition/create-splash-animation';
 import { Show } from '@infotition/react-control-flow';
 import { FunctionComponent, useRef } from 'react';
 
-import { createClickAnimation } from '../../utils/createRippleAnimation';
 import { ButtonProps } from './Button.types';
 
 export const Button: FunctionComponent<ButtonProps> = ({
@@ -24,7 +24,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   const button = useRef<HTMLButtonElement>(null);
 
   const handleClick = (event: React.MouseEvent) => {
-    createClickAnimation(event, 'btn-ripple');
+    createSplashAnimation(event, 'btn-ripple');
     button.current?.blur();
     onClick && onClick();
   };
