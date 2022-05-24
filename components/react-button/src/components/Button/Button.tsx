@@ -43,14 +43,14 @@ export const Button: FunctionComponent<ButtonProps> = ({
     'aria-busy': loading,
     onClick: handleClick,
     className: buttonClasses,
-    tabindex: 0,
+    tabIndex: 0,
     disabled,
     type,
     variant,
   };
 
   return (
-    <button ref={button} {...buttonProps}>
+    <button ref={button} data-testid="btn" {...buttonProps}>
       <Show when={!loadingIndicator && loading && loadingPosition !== 'end'}>
         <div className="spinner" aria-hidden />
       </Show>
@@ -63,7 +63,9 @@ export const Button: FunctionComponent<ButtonProps> = ({
         <>{loadingIndicator}</>
       </Show>
 
-      <Show when={!loading || (loading && loadingPosition)}>
+      <Show
+        when={!loadingIndicator && (!loading || (loading && loadingPosition))}
+      >
         <>{label}</>
       </Show>
 
