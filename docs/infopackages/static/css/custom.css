@@ -110,3 +110,24 @@ html[data-theme='dark'] .navbar-item-discord:before {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.ripple-container {
+  width: 100px;
+  height: 100px;
+  background-color: #9b7def;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-ripple {
+  animation: btn-ripple 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  background-color: white;
+}
+
+@keyframes btn-ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

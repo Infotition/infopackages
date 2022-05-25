@@ -1,0 +1,63 @@
+---
+id: create-splash-animation-getting-started
+title: Getting started
+description: 'Quick introduction of how to use the package.'
+sidebar_position: 1
+---
+
+import { createSplashAnimation } from '@site/../../packages/create-splash-animation/src';
+
+# Getting started
+
+An utility package for to play material design splash animations on click events.
+
+## Quick start
+
+This package provides a function to create a ripple/splash animation after click animation. It creates an absolute span element as child at the
+clicked position and adds the provided class name to it. The class then needs to play the animation (e.g. scaling the size of the element).
+You can look at the following example in react on how to use the package properly.
+
+<div
+  className="ripple-container"
+  onClick={(e) => createSplashAnimation(e, 'btn-ripple')}
+/><br/>
+
+```tsx
+const Demo: FunctionComponent = () => {
+  const handleClick = (event: MouseEvent) => {
+    createSplashAnimation(event, 'splash');
+  };
+
+  return (
+    <div className="container" onClick={handleClick} />
+  );
+}
+```
+
+```scss
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: #9b7def;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.splash {
+  animation: ripple 500ms ease;
+  background-color: white;
+}
+
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+```
+
+For the animation to work, it is needed to set the container (the clickable element) to `relative` position and its overflow to `hidden`.
+
+## Installation
+
+```bash
+yarn add @infotition/create-splash-animation
+```

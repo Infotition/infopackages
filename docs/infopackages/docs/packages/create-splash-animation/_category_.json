@@ -1,0 +1,7 @@
+{
+  "label": "Create Splash Animation",
+  "link": {
+    "type": "generated-index",
+    "description": "An utility package for to play material design splash animations on click events."
+  }
+}
