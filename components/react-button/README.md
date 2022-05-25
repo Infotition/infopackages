@@ -49,7 +49,14 @@
 
 # Getting started
 
+The simplest `Button` component comes in three different variants: `contained` (default),
+`outlined` and `text`. All variants can be combined with other props.
 
+```tsx
+<Button variant="text" label="TEXT" />
+<Button variant="contained" label="CONTAINED" />
+<Button variant="outlined" label="OUTLINED" />
+```
 
 For more props please visit the official [docs](https://infotition.github.io/infopackages/category/react-button).
 

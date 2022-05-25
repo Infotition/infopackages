@@ -1,0 +1,197 @@
+---
+id: react-button-getting-started
+title: Getting started
+description: 'Quick introduction of how to use the component.'
+sidebar_position: 1
+---
+
+import { useState, useRef } from 'react';
+import { Button } from '@site/../../components/react-button/src';
+const bolt = (
+  <span style={{width: 25, height: 25}}>
+    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+    </svg>
+  </span>
+);
+const eye = (
+  <span style={{width: 25, height: 25}}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+      <path
+        fillRule="evenodd"
+        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </span>
+);
+
+# Getting started
+
+Lightweight react button based on material design 3.
+
+## Quick started
+
+### Basic Button
+
+The simplest `Button` component comes in three different variants: `contained` (default),
+`outlined` and `text`. All variants can be combined with other props.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="text" label="TEXT" />
+  <Button variant="contained" label="CONTAINED" />
+  <Button variant="outlined" label="OUTLINED" />
+</div>
+<br />
+
+```tsx
+<Button variant="text" label="TEXT" />
+<Button variant="contained" label="CONTAINED" />
+<Button variant="outlined" label="OUTLINED" />
+```
+
+### Form props
+
+The standard form attributes are supported e.g. `disabled`, `type` and so on.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="text" label="TEXT" disabled />
+  <Button variant="contained" label="CONTAINED" disabled />
+  <Button variant="outlined" label="OUTLINED" disabled />
+</div>
+<br />
+
+```tsx
+<Button variant="text" label="TEXT" disabled />
+<Button variant="contained" label="CONTAINED" disabled />
+<Button variant="outlined" label="OUTLINED" disabled />
+```
+
+### Contained Button
+
+You can remove the elevation of the contained button with the `disableElevation` prop.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="contained" label="CONTAINED" disableElevation />
+</div>
+<br />
+
+```tsx
+<Button variant="contained" label="CONTAINED" disableElevation />
+```
+
+### Handling Clicks
+
+The button component accepts an `onClick` handler that is applied to the root DOM element
+and fires after a user clicked the button while not `disabled`.
+
+export const ClickDemo = () => {
+  const [clicks, setClicks] = useState(0);
+  const handleClick = () => {
+    setClicks(clicks + 1);
+  }
+  return (
+    <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+      <Button variant="contained" label="CONTAINED" onClick={handleClick} />
+      <span>Clicks: {clicks}</span>
+    </div>
+  );
+}
+
+<ClickDemo /><br />
+
+```tsx
+<Button
+  variant="contained"
+  label="CONTAINED"
+  onClick={() => alert('clicked')}
+/>
+```
+
+### Color
+
+The  button components comes with all main colors of the palette: `primary`, `secondary`, `success` and `error`;
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="contained" label="PRIMARY" color="primary" />
+  <Button variant="contained" label="SECONDARY" color="secondary" />
+  <Button variant="contained" label="SUCCESS" color="success" />
+  <Button variant="contained" label="ERROR" color="error" />
+</div><br />
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="outlined" label="PRIMARY" color="primary" />
+  <Button variant="outlined" label="SECONDARY" color="secondary" />
+  <Button variant="outlined" label="SUCCESS" color="success" />
+  <Button variant="outlined" label="ERROR" color="error" />
+</div>
+<br />
+
+```tsx
+<Button variant="contained" label="PRIMARY" color="primary" />
+<Button variant="contained" label="SECONDARY" color="secondary" />
+<Button variant="contained" label="SUCCESS" color="success" />
+<Button variant="contained" label="ERROR" color="error" />
+```
+
+### Icons
+
+Buttons can contain a icon at the start or end of the button.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="contained" label="PRIMARY" startIcon={bolt} />
+  <Button variant="contained" label="SECONDARY" endIcon={eye} />
+  <Button variant="contained" label="PRIMARY" startIcon={bolt} endIcon={eye}  />
+</div><br />
+
+```tsx
+<Button variant="contained" label="PRIMARY" startIcon={bolt} />
+<Button variant="contained" label="SECONDARY" endIcon={eye} />
+<Button variant="contained" label="PRIMARY" startIcon={bolt} endIcon={eye}  />
+```
+
+### Loading state
+
+The button can also show a loading state and disable interaction. If no `loadingPosition` is defined,
+the `label` gets replaced by the spinner.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="contained" label="PRIMARY" loading disabled />
+  <Button variant="contained" label="PRIMARY" loading disabled loadingPosition="start" />
+  <Button variant="contained" label="PRIMARY" loading disabled loadingPosition="end" />
+</div><br />
+
+```tsx
+<Button variant="contained" label="PRIMARY" loading disabled />
+<Button variant="contained" label="PRIMARY" loading disabled loadingPosition="start" />
+<Button variant="contained" label="PRIMARY" loading disabled loadingPosition="end" />
+```
+
+Instead if the spinner, you can also provide a `loadingIndicator`, which replaces the label and the spinner.
+
+<div style={{ display: "flex", gap: "30px" }}>
+  <Button variant="contained" label="PRIMARY" loading disabled loadingIndicator="Loading..."/>
+</div><br />
+
+```tsx
+<Button variant="contained" label="PRIMARY" loading disabled loadingIndicator="Loading..."/>
+```
+
+## Installation
+
+```bash
+npm install @infotition/react-button
+```
+
+Or:
+
+```bash
+yarn add @infotition/react-button
+```
+
+If you want the default styling to be enabled, you must import the css / scss file first.
+
